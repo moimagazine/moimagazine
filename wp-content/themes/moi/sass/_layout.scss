@@ -12,6 +12,7 @@ body, html {
     margin: 0 auto;
     max-width: 1280px;
     width: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -75,8 +76,6 @@ header {
         width: 130px;
 
         &:focus {
-            border-color: $accent-color;
-            color: $accent-color;
             width: 180px;
         }
     }
@@ -95,4 +94,21 @@ header {
 
 article {
     clear: both;
+}
+
+footer {
+    clear: both;
+    border-top: 1px solid #eee;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.clearfix {
+    &:before, &:after {
+        content:"";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
 }

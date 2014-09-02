@@ -1,0 +1,66 @@
+.featured-stories {
+    .story-container {
+        @include background-size('cover');
+        display: inline-block;
+        max-width: 500px;
+        position: relative;
+        line-height: 0;
+
+        &:hover {
+            .story-info-bg {
+                @include filter(blur(10px) brightness(0.8) contrast(150%));
+            }
+        }
+    }
+    .story-info {
+        bottom: 0;
+        color: #fff;
+        line-height: 18px;
+        overflow: hidden;
+        position: absolute;
+        padding: 15px;
+        z-index: 1;
+        h2 {
+            color: #fff;
+            line-height: 26px;
+            margin: 0;
+        }
+    }
+    .story-info-bg {
+        @include filter(blur(10px) brightness(0.75) contrast(140%));
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 0;
+        margin: -20px;
+
+        img {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+    .story-info-text {
+        position: relative;
+    }
+    .meta {
+        font-size: 12px;
+    }
+    .avatar {
+        @include border-radius(16px);
+        display: inline-block;
+        overflow: hidden;
+        margin: 4px 4px 4px 0;
+        vertical-align: middle;
+    }
+    .author-block {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 14px;
+    }
+    .author-name {
+        font-weight: bold;
+    }
+}

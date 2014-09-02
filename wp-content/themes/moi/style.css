@@ -1,11 +1,10 @@
 @charset "UTF-8";
 /*
 Theme Name: Moi Magazine
-Theme URI: http://underscores.me/
-Author: Automattic
-Author URI: http://automattic.com/
-Description: Hi. I'm a starter theme called <code>Moi Magazine</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
-Version: 1.0-wpcom
+Author: Istvan Pusztai
+Author URI: http://istvan.co/
+Description: Custom Wordpress theme for Moi Magazine.
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Moi Magazine
@@ -13,13 +12,6 @@ Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
- Moi Magazine is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
-
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
 */
 body, html {
   background: #fff;
@@ -35,6 +27,7 @@ body, html {
   margin: 0 auto;
   max-width: 1280px;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 header #logo {
@@ -97,8 +90,6 @@ header .search-field {
   width: 130px;
 }
 header .search-field:focus {
-  border-color: #f04040;
-  color: #f04040;
   width: 180px;
 }
 header .search-submit {
@@ -118,6 +109,21 @@ article {
   clear: both;
 }
 
+footer {
+  clear: both;
+  border-top: 1px solid #eee;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
 a, a:visited {
   color: #f04040;
   text-decoration: none;
@@ -131,6 +137,78 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Serif", serif;
   color: #333;
+}
+
+.featured-stories .story-container {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: inline-block;
+  max-width: 500px;
+  position: relative;
+  line-height: 0;
+}
+.featured-stories .story-container:hover .story-info-bg {
+  -webkit-filter: blur(10px) brightness(0.8) contrast(150%);
+  -moz-filter: blur(10px) brightness(0.8) contrast(150%);
+  filter: blur(10px) brightness(0.8) contrast(150%);
+}
+.featured-stories .story-info {
+  bottom: 0;
+  color: #fff;
+  line-height: 18px;
+  overflow: hidden;
+  position: absolute;
+  padding: 15px;
+  z-index: 1;
+}
+.featured-stories .story-info h2 {
+  color: #fff;
+  line-height: 26px;
+  margin: 0;
+}
+.featured-stories .story-info-bg {
+  -webkit-filter: blur(10px) brightness(0.75) contrast(140%);
+  -moz-filter: blur(10px) brightness(0.75) contrast(140%);
+  filter: blur(10px) brightness(0.75) contrast(140%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  margin: -20px;
+}
+.featured-stories .story-info-bg img {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.featured-stories .story-info-text {
+  position: relative;
+}
+.featured-stories .meta {
+  font-size: 12px;
+}
+.featured-stories .avatar {
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 4px 4px 4px 0;
+  vertical-align: middle;
+}
+.featured-stories .author-block {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 14px;
+}
+.featured-stories .author-name {
+  font-weight: bold;
 }
 
 /*
