@@ -1,0 +1,98 @@
+body, html {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#content-inner {
+    background: #fff;
+    color: #333;
+    font-family: $default-font-family;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+}
+
+header {
+
+    #logo {
+        float: left;
+    }
+
+    nav {
+        text-align: right;
+        margin-left: 200px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+
+        a {
+            display: block;
+            margin-left: 10px;
+            padding: 13px 10px;
+            @include transition(background 150ms, color 150ms);
+
+            &:hover {
+                background: $accent-color;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .social-icons {
+        a {
+            color: #ccc;
+            padding: 10px 20px;
+        }
+    }
+
+    .main-navigation {
+        border-top: #eee 1px solid;
+    }
+
+    .search-container {
+        padding: 8px;
+        position: relative;
+    }
+
+    .search-field {
+        @include appearance(none);
+        border: 1px solid #ddd;
+        @include border-radius(20px);
+        font-size: 14px;
+        outline: none;
+        padding: 4px 32px 4px 10px;
+        @include transition(width 500ms);
+        width: 130px;
+
+        &:focus {
+            border-color: $accent-color;
+            color: $accent-color;
+            width: 180px;
+        }
+    }
+
+    .search-submit {
+        @include appearance(none);
+        background: url('images/search.svg') no-repeat center center;
+        border: 0;
+        cursor: pointer;
+        height: 24px;
+        margin-left: -32px;
+        text-indent: -999px;
+        width: 24px;
+    }
+}
+
+article {
+    clear: both;
+}

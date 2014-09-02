@@ -1,13 +1,14 @@
+@charset "UTF-8";
 /*
 Theme Name: Moi Magazine
 Theme URI: http://underscores.me/
-Author: Istvan Pusztai
-Author URI: http://istvan.co
-Description: Description
+Author: Automattic
+Author URI: http://automattic.com/
+Description: Hi. I'm a starter theme called <code>Moi Magazine</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: moi
+Text Domain: Moi Magazine
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
@@ -20,773 +21,380 @@ Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
-
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.0 - Reset
-2.0 - Typography
-3.0 - Elements
-4.0 - Forms
-5.0 - Navigation
-	5.1 - Links
-	5.2 - Menus
-6.0 - Accessibility
-7.0 - Alignments
-8.0 - Clearings
-9.0 - Widgets
-10.0 - Content
-	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Comments
-11.0 - Infinite scroll
-12.0 - Media
-	12.1 - Captions
-	12.2 - Galleries
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-1.0 - Reset
---------------------------------------------------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	font-family: inherit;
-	font-size: 100%;
-	font-style: inherit;
-	font-weight: inherit;
-	margin: 0;
-	outline: 0;
-	padding: 0;
-	vertical-align: baseline;
-}
-
-html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
-	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-}
-
-*,
-*:before,
-*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
-	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-	box-sizing:         border-box;
-}
-
-body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section {
-	display: block;
-}
-
-ol,
-ul {
-	list-style: none;
-}
-
-table { /* tables still need 'cellspacing="0"' in the markup */
-	border-collapse: separate;
-	border-spacing: 0;
-}
-
-caption,
-th,
-td {
-	font-weight: normal;
-	text-align: left;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: "";
-}
-
-blockquote,
-q {
-	quotes: "" "";
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
-}
-
-a img {
-	border: 0;
+body, html {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+#content-inner {
+  background: #fff;
+  color: #333;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+header #logo {
+  float: left;
+}
+header nav {
+  text-align: right;
+  margin-left: 200px;
+}
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header li {
+  display: inline-block;
+}
+header li a {
+  display: block;
+  margin-left: 10px;
+  padding: 13px 10px;
+  -webkit-transition: background 150ms, color 150ms;
+  -moz-transition: background 150ms, color 150ms;
+  -o-transition: background 150ms, color 150ms;
+  transition: background 150ms, color 150ms;
+}
+header li a:hover {
+  background: #f04040;
+  color: #fff;
+  text-decoration: none;
+}
+header .social-icons a {
+  color: #ccc;
+  padding: 10px 20px;
+}
+header .main-navigation {
+  border-top: #eee 1px solid;
+}
+header .search-container {
+  padding: 8px;
+  position: relative;
+}
+header .search-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  padding: 4px 32px 4px 10px;
+  -webkit-transition: width 500ms;
+  -moz-transition: width 500ms;
+  -o-transition: width 500ms;
+  transition: width 500ms;
+  width: 130px;
+}
+header .search-field:focus {
+  border-color: #f04040;
+  color: #f04040;
+  width: 180px;
+}
+header .search-submit {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("images/search.svg") no-repeat center center;
+  border: 0;
+  cursor: pointer;
+  height: 24px;
+  margin-left: -32px;
+  text-indent: -999px;
+  width: 24px;
 }
 
-/*--------------------------------------------------------------
-2.0 Typography
---------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
+article {
+  clear: both;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
+a, a:visited {
+  color: #f04040;
+  text-decoration: none;
 }
 
-p {
-	margin-bottom: 1.5em;
+a:hover {
+  color: #000;
+  text-decoration: underline;
 }
 
-b,
-strong {
-	font-weight: bold;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PT Serif", serif;
+  color: #333;
 }
 
-dfn,
-cite,
-em,
-i {
-	font-style: italic;
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2013 Oak Studios LLC
+*
+* Upload this file to your web server
+* and place this within your <head> tags.
+* <link href="webfonts/ss-social-regular.css" rel="stylesheet" />
+*/
+@font-face {
+  font-family: "SSSocialRegular";
+  src: url("ss-social-regular.eot");
+  src: url("ss-social-regular.eot?#iefix") format("embedded-opentype"), url("ss-social-regular.woff") format("woff"), url("ss-social-regular.ttf") format("truetype"), url("ss-social-regular.svg#SSSocialRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
-blockquote {
-	margin: 0 1.5em;
+/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+html:hover [class^="ss-"] {
+  -ms-zoom: 1;
 }
 
-address {
-	margin: 0 0 1.5em;
+.ss-icon, .ss-icon.ss-social-regular,
+[class^="ss-"]:before, [class*=" ss-"]:before,
+[class^="ss-"].ss-social-regular:before, [class*=" ss-"].ss-social-regular:before,
+[class^="ss-"].right:after, [class*=" ss-"].right:after,
+[class^="ss-"].ss-social-regular.right:after, [class*=" ss-"].ss-social-regular.right:after {
+  font-family: "SSSocialRegular";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
 }
 
-pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 1.5rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
+[class^="ss-"].right:before,
+[class*=" ss-"].right:before {
+  display: none;
+  content: '';
 }
 
-code,
-kbd,
-tt,
-var {
-	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+.ss-facebook:before, .ss-facebook.right:after {
+  content: '';
 }
 
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
+.ss-twitter:before, .ss-twitter.right:after {
+  content: '';
 }
 
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
+.ss-linkedin:before, .ss-linkedin.right:after {
+  content: '';
 }
 
-sup,
-sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+.ss-googleplus:before, .ss-googleplus.right:after {
+  content: '';
 }
 
-sup {
-	bottom: 1ex;
+.ss-appdotnet:before, .ss-appdotnet.right:after {
+  content: '';
 }
 
-sub {
-	top: .5ex;
+.ss-zerply:before, .ss-zerply.right:after {
+  content: '';
 }
 
-small {
-	font-size: 75%;
+.ss-reddit:before, .ss-reddit.right:after {
+  content: '';
 }
 
-big {
-	font-size: 125%;
+.ss-steam:before, .ss-steam.right:after {
+  content: '';
 }
 
-/*--------------------------------------------------------------
-3.0 Elements
---------------------------------------------------------------*/
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+.ss-tumblr:before, .ss-tumblr.right:after {
+  content: '';
 }
 
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
+.ss-wordpress:before, .ss-wordpress.right:after {
+  content: '';
 }
 
-ul {
-	list-style: disc;
+.ss-blogger:before, .ss-blogger.right:after {
+  content: '';
 }
 
-ol {
-	list-style: decimal;
+.ss-posterous:before, .ss-posterous.right:after {
+  content: '';
 }
 
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+.ss-quora:before, .ss-quora.right:after {
+  content: '';
 }
 
-dt {
-	font-weight: bold;
+.ss-youtube:before, .ss-youtube.right:after {
+  content: '';
 }
 
-dd {
-	margin: 0 1.5em 1.5em;
+.ss-vimeo:before, .ss-vimeo.right:after {
+  content: '';
 }
 
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+.ss-vine:before, .ss-vine.right:after {
+  content: '';
 }
 
-figure {
-	margin: 0;
+.ss-letterboxd:before, .ss-letterboxd.right:after {
+  content: '';
 }
 
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
+.ss-flickr:before, .ss-flickr.right:after {
+  content: '';
 }
 
-th {
-	font-weight: bold;
+.ss-instagram:before, .ss-instagram.right:after {
+  content: '';
 }
 
-/*--------------------------------------------------------------
-4.0 Forms
---------------------------------------------------------------*/
-button,
-input,
-select,
-textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+.ss-500px:before, .ss-500px.right:after {
+  content: '';
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+.ss-etsy:before, .ss-etsy.right:after {
+  content: '';
 }
 
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+.ss-pinterest:before, .ss-pinterest.right:after {
+  content: '';
 }
 
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+.ss-svpply:before, .ss-svpply.right:after {
+  content: '';
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-	padding: 0; /* Addresses excess padding in IE8/9 */
+.ss-readmill:before, .ss-readmill.right:after {
+  content: '';
 }
 
-input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
-	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-moz-box-sizing:    content-box;
-	box-sizing:         content-box;
+.ss-dropbox:before, .ss-dropbox.right:after {
+  content: '';
 }
 
-input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-	-webkit-appearance: none;
+.ss-pinboard:before, .ss-pinboard.right:after {
+  content: '';
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-	border: 0;
-	padding: 0;
+.ss-delicious:before, .ss-delicious.right:after {
+  content: '';
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+.ss-dribbble:before, .ss-dribbble.right:after {
+  content: '';
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-	color: #111;
+.ss-behance:before, .ss-behance.right:after {
+  content: '';
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"] {
-	padding: 3px;
+.ss-github:before, .ss-github.right:after {
+  content: '';
 }
 
-textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 100%;
+.ss-octocat:before, .ss-octocat.right:after {
+  content: '';
 }
 
-/*--------------------------------------------------------------
-5.0 Navigation
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-5.1 Links
---------------------------------------------------------------*/
-a {
-	color: royalblue;
+.ss-stackoverflow:before, .ss-stackoverflow.right:after {
+  content: '';
 }
 
-a:visited {
-	color: purple;
+.ss-paypal:before, .ss-paypal.right:after {
+  content: '';
 }
 
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
+.ss-kickstarter:before, .ss-kickstarter.right:after {
+  content: '';
 }
 
-/*--------------------------------------------------------------
-5.2 Menus
---------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+.ss-foursquare:before, .ss-foursquare.right:after {
+  content: '';
 }
 
-.main-navigation ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
+.ss-yelp:before, .ss-yelp.right:after {
+  content: '';
 }
 
-.main-navigation li {
-	float: left;
-	position: relative;
+.ss-skype:before, .ss-skype.right:after {
+  content: '';
 }
 
-.main-navigation a {
-	display: block;
-	text-decoration: none;
+.ss-rdio:before, .ss-rdio.right:after {
+  content: '';
 }
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
+.ss-spotify:before, .ss-spotify.right:after {
+  content: '';
 }
 
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+.ss-lastfm:before, .ss-lastfm.right:after {
+  content: '';
 }
 
-.main-navigation ul ul a {
-	width: 200px;
+.ss-soundcloud:before, .ss-soundcloud.right:after {
+  content: '';
 }
 
-.main-navigation ul ul li {
-
+.ss-link:before, .ss-link.right:after {
+  content: '🔗';
 }
 
-.main-navigation li:hover > a {
+.ss-phone:before, .ss-phone.right:after {
+  content: '📞';
 }
 
-.main-navigation ul ul :hover > a {
+.ss-mail:before, .ss-mail.right:after {
+  content: '✉';
 }
 
-.main-navigation ul ul a:hover {
+.ss-like:before, .ss-like.right:after {
+  content: '👍';
 }
 
-.main-navigation ul li:hover > ul {
-	left: auto;
+.ss-rss:before, .ss-rss.right:after {
+  content: '';
 }
 
-.main-navigation ul ul li:hover > ul {
-	left: 100%;
+.ss-share:before, .ss-share.right:after {
+  content: '';
 }
 
-.main-navigation .current_page_item a,
-.main-navigation .current-menu-item a {
+.ss-apple:before, .ss-apple.right:after {
+  content: '';
 }
 
-/* Small menu */
-.menu-toggle {
-	display: none;
+.ss-microsoft:before, .ss-microsoft.right:after {
+  content: '';
 }
-
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
 
-	.main-navigation ul {
-		display: none;
-	}
+.ss-windows:before, .ss-windows.right:after {
+  content: '';
 }
 
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
+.ss-android:before, .ss-android.right:after {
+  content: '';
 }
 
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
+.ss-blackberry:before, .ss-blackberry.right:after {
+  content: '';
 }
 
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+/* Legacy */
+.ss-fivehundredpx:before, .ss-fivehundredpx.right:after {
+  content: '';
 }
 
-/*--------------------------------------------------------------
-6.0 Accessibility
---------------------------------------------------------------*/
-/* Text meant only for screen readers */
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar */
-}
-
-/*--------------------------------------------------------------
-7.0 Alignments
---------------------------------------------------------------*/
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-
-.aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
-}
-
-/*--------------------------------------------------------------
-8.0 Clearings
---------------------------------------------------------------*/
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
-	content: '';
-	display: table;
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-	clear: both;
-}
-
-/*--------------------------------------------------------------
-9.0 Widgets
---------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
-}
-
-/* Make sure select elements fit in widgets */
-.widget select {
-	max-width: 100%;
-}
-
-/* Search widget */
-.widget_search .search-submit {
-	display: none;
-}
-
-/*--------------------------------------------------------------
-10.0 Content
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-10.1 Posts and pages
---------------------------------------------------------------*/
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-}
-
-.byline,
-.updated:not(.published) {
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
-
-/*--------------------------------------------------------------
-10.2 Asides
---------------------------------------------------------------*/
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-	display: none;
-}
-
-/*--------------------------------------------------------------
-10.3 Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-11.0 Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-12.0 Media
---------------------------------------------------------------*/
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-}
-
-/* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-/*--------------------------------------------------------------
-12.1 Captions
---------------------------------------------------------------*/
-.wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
-}
-
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 0 auto;
-}
-
-.wp-caption-text {
-	text-align: center;
-}
-
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
-}
-
-/*--------------------------------------------------------------
-12.2 Galleries
---------------------------------------------------------------*/
-.gallery {
-	margin-bottom: 1.5em;
-}
-
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-}
-
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
-
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
-
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
-
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
-
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-}
-
-.gallery-caption {
-	display: block;
+  position: absolute;
+  left: -1000em;
 }
