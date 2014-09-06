@@ -23,7 +23,7 @@
                             <?php echo get_avatar(get_the_author_meta('ID'), 32 ) ?>
                         </div>
                         <div class="author-block">
-<!--                            <div class="author-name">--><?php //echo get_the_author_meta('display_name') ?><!--</div>-->
+                            <div class="author-name"><?php echo get_the_author_meta('display_name') ?></div>
                             <div class="date"><?php echo get_the_date('M j, Y h:i A') ?></div>
                         </div>
                     </div>
