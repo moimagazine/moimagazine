@@ -8,7 +8,12 @@
 
         &:hover {
             .story-info-bg {
-                @include filter(blur(10px) brightness(0.8) contrast(150%));
+                @include filter(blur(10px) brightness(0.75) contrast(150%));
+            }
+            .extra {
+                max-height: 500px;
+                @include opacity(1);
+                visibility: visible;
             }
         }
     }
@@ -27,14 +32,14 @@
         }
     }
     .story-info-bg {
-        @include filter(blur(10px) brightness(0.75) contrast(140%));
-        position: absolute;
+        bottom: 0;
+        @include filter(blur(10px) brightness(0.75) contrast(150%));
         left: 0;
+        position: absolute;
         right: 0;
         top: 0;
-        bottom: 0;
-        z-index: 0;
         margin: -20px;
+        z-index: 0;
 
         img {
             bottom: 0;
@@ -47,6 +52,11 @@
     }
     .meta {
         font-size: 12px;
+    }
+    .extra {
+        max-height: 0;
+        @include opacity(0);
+        @include transition(max-height 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000));
     }
     .avatar {
         @include border-radius(16px);

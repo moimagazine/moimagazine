@@ -150,9 +150,15 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
 }
 .featured-stories .story-container:hover .story-info-bg {
-  -webkit-filter: blur(10px) brightness(0.8) contrast(150%);
-  -moz-filter: blur(10px) brightness(0.8) contrast(150%);
-  filter: blur(10px) brightness(0.8) contrast(150%);
+  -webkit-filter: blur(10px) brightness(0.75) contrast(150%);
+  -moz-filter: blur(10px) brightness(0.75) contrast(150%);
+  filter: blur(10px) brightness(0.75) contrast(150%);
+}
+.featured-stories .story-container:hover .extra {
+  max-height: 500px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  visibility: visible;
 }
 .featured-stories .story-info {
   bottom: 0;
@@ -169,16 +175,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 .featured-stories .story-info-bg {
-  -webkit-filter: blur(10px) brightness(0.75) contrast(140%);
-  -moz-filter: blur(10px) brightness(0.75) contrast(140%);
-  filter: blur(10px) brightness(0.75) contrast(140%);
-  position: absolute;
+  bottom: 0;
+  -webkit-filter: blur(10px) brightness(0.75) contrast(150%);
+  -moz-filter: blur(10px) brightness(0.75) contrast(150%);
+  filter: blur(10px) brightness(0.75) contrast(150%);
   left: 0;
+  position: absolute;
   right: 0;
   top: 0;
-  bottom: 0;
-  z-index: 0;
   margin: -20px;
+  z-index: 0;
 }
 .featured-stories .story-info-bg img {
   bottom: 0;
@@ -190,6 +196,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .featured-stories .meta {
   font-size: 12px;
+}
+.featured-stories .extra {
+  max-height: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: max-height 300ms cubic-bezier(0.42, 0, 0.58, 1), opacity 400ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: max-height 300ms cubic-bezier(0.42, 0, 0.58, 1), opacity 400ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: max-height 300ms cubic-bezier(0.42, 0, 0.58, 1), opacity 400ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: max-height 300ms cubic-bezier(0.42, 0, 0.58, 1), opacity 400ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 .featured-stories .avatar {
   -webkit-border-radius: 16px;
