@@ -32,8 +32,8 @@ function moi_setup() {
 
     add_theme_support('post-thumbnails');
 
-    add_image_size('featured', 800, 400, true);
     add_image_size('vertical', 300, 375, true);
+    add_image_size('large-vertical', 600, 750, true);
 }
 
 add_action('wp_enqueue_scripts', 'moi_scripts');
@@ -46,8 +46,8 @@ add_filter('image_size_names_choose', 'moi_image_sizes');
 
 function moi_image_sizes($presets) {
     $custom = array(
-        "featured" => __("Featured Image"),
-        "vertical" => __("Vertical Image")
+        "vertical" => __("Vertical"),
+        "large-vertical" => __("Large Vertical")
     );
     return array_merge($presets, $custom);
 }

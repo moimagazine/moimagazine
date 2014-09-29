@@ -1,3 +1,4 @@
 .sass-cache
 wp-content/uploads
 wp-config.php
+*.log
