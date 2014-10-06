@@ -1,6 +1,6 @@
 <div class="post-container">
     <a class="post-image" href="<? the_permalink() ?>">
-        <?php the_post_thumbnail('large-vertical') ?>
+        <?php the_post_thumbnail('vertical-large') ?>
     </a>
     <div class="post-text">
         <div class="post-meta">

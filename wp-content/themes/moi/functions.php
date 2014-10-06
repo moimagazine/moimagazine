@@ -33,7 +33,7 @@ function moi_setup() {
     add_theme_support('post-thumbnails');
 
     add_image_size('vertical', 300, 375, true);
-    add_image_size('large-vertical', 600, 750, true);
+    add_image_size('vertical-large', 600, 750, true);
 }
 
 add_action('wp_enqueue_scripts', 'moi_scripts');
@@ -47,7 +47,7 @@ add_filter('image_size_names_choose', 'moi_image_sizes');
 function moi_image_sizes($presets) {
     $custom = array(
         "vertical" => __("Vertical"),
-        "large-vertical" => __("Large Vertical")
+        "vertical-large" => __("Vertical (Large)")
     );
     return array_merge($presets, $custom);
 }
