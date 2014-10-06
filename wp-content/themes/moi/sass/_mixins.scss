@@ -8,6 +8,9 @@
     @else if $device == tablet-only {
         @media only screen and (min-width: $mobile-max-width + 1) and (max-width: $desktop-min-width - 1) { @content; }
     }
+    @else if $device == tablet-desktop {
+        @media only screen and (min-width: $mobile-max-width + 1) { @content; }
+    }
     @else if $device == desktop {
         @media only screen and (min-width: $desktop-min-width) { @content; }
     }

@@ -116,6 +116,7 @@ header .search-submit {
 
 article {
   clear: both;
+  padding: 0 20px;
 }
 
 footer {
@@ -142,6 +143,43 @@ h1, h2, h3, h4, h5, h6 {
 
 h2.separator {
   border-bottom: 1px solid #ddd;
+}
+
+.latest-posts .post {
+  float: left;
+  border: 1px solid #eee;
+  border-width: 1px 1px 0 0;
+  padding: 20px;
+  width: 50%;
+}
+@media only screen and (min-width: 601px) {
+  .latest-posts .post:nth-child(2n) {
+    border-right-color: transparent;
+  }
+  .latest-posts .post:nth-child(2n+1) {
+    clear: both;
+  }
+  .latest-posts .post:first-child, .latest-posts .post:nth-child(2) {
+    border-top-color: transparent;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .latest-posts .post .readmore {
+    display: none;
+  }
+  .latest-posts .post .excerpt {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .latest-posts .post {
+    border-width: 1px 0 0 0;
+    padding: 10px 0;
+    width: 100%;
+  }
+  .latest-posts .post:first-child {
+    border-top: 0;
+  }
 }
 
 .nav-block {
@@ -310,17 +348,6 @@ h2.separator {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  float: left;
-  border: 1px solid #eee;
-  border-width: 0 1px 1px 0;
-  padding: 20px;
-  width: 50%;
-}
-.post:nth-child(2n) {
-  border-right-color: transparent;
-}
-.post:last-child, .post:nth-last-child(2) {
-  border-bottom-color: transparent;
 }
 .post .post-image-block {
   float: left;

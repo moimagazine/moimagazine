@@ -1,3 +1,33 @@
+.latest-posts {
+    .post {
+        float: left;
+        border: 1px solid #eee;
+        border-width: 1px 1px 0 0;
+        padding: 20px;
+        width: 50%;
+        @include respond-to(tablet-desktop) {
+            &:nth-child(2n) {
+                border-right-color: transparent;
+            }
+            &:nth-child(2n+1) {
+                clear: both;
+            }
+            &:first-child, &:nth-child(2) {
+                border-top-color: transparent;
+            }
+        }
+        @include respond-to(tablet) {
+            .readmore { display: none }
+            .excerpt { display: none }
+        }
+        @include respond-to(mobile) {
+            border-width: 1px 0 0 0;
+            padding: 10px 0;
+            width: 100%;
+            &:first-child { border-top: 0 }
+        }
+    }
+}
 .nav-block {
     border-top: 1px solid #eee;
     text-align: center;
