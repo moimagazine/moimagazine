@@ -51,3 +51,13 @@ function moi_image_sizes($presets) {
     );
     return array_merge($presets, $custom);
 }
+
+function the_main_category_link() {
+    $category = get_the_category();
+    echo get_category_link($category[0]->cat_ID);
+}
+
+function the_main_category() {
+    $category = get_the_category();
+    echo $category[0]->name;
+}

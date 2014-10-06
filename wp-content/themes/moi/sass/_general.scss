@@ -7,3 +7,8 @@
         clear: both;
     }
 }
+.readmore {
+    &:after {
+        content: " \0219d"
+    }
+}

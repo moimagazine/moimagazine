@@ -1,4 +1,19 @@
 <?php get_header() ?>
+<h2 class="separator">Latest</h2>
+<div class="latest-posts posts clearfix">
+    <?php
+    $latest_posts = get_posts(array(
+        'numberposts' => 4,
+    ));
+    foreach($latest_posts as $post) {
+        setup_postdata($post);
+        get_template_part('partials/loop', 'post');
+    }
+    ?>
+</div>
+<div class="nav-block">
+    <a href="#" class="nextpage">Next Page &raquo;</a>
+</div>
 <h2 class="separator">Editor's Picks</h2>
 <div class="editors-picks">
     <?php

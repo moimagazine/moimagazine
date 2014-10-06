@@ -22,6 +22,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
   clear: both;
 }
 
+.readmore:after {
+  content: " ↝";
+}
+
 body, html {
   background: #fff;
   margin: 0;
@@ -140,37 +144,62 @@ h2.separator {
   border-bottom: 1px solid #ddd;
 }
 
+.nav-block {
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+.nav-block a {
+  background: #f04040;
+  color: #fff;
+  display: inline-block;
+  padding: 8px 15px;
+}
+.nav-block a:hover {
+  background: #f36666;
+  text-decoration: none;
+}
+
 .editors-picks .col {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   width: 25%;
   float: left;
 }
 .editors-picks .col2 {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
   width: 50%;
 }
-.editors-picks .col2 .story-container .story-text {
+.editors-picks .col2 .post-container .post-text {
   background: #fff;
   position: relative;
   margin: 0 50px;
   padding: 0 20px;
   top: -100px;
 }
-.editors-picks .col2 .story-container .story-text h2 {
+.editors-picks .col2 .post-container .post-text h2 {
   font-size: 32px;
   line-height: 36px;
 }
-.editors-picks .story-container .story-image {
-  line-height: 0;
-  margin: 20px 20px 0 20px;
+.editors-picks .post-container {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
 }
-.editors-picks .story-container .story-image img {
+.editors-picks .post-container:last-child {
+  border: 0;
+}
+.editors-picks .post-container .post-image {
+  line-height: 0;
+}
+.editors-picks .post-container .post-image img {
   height: auto;
   width: 100%;
 }
-.editors-picks .story-container .story-text {
-  margin: 0 20px 20px 20px;
+.editors-picks .post-container .post-text {
   text-align: center;
 }
-.editors-picks .story-container .story-text .avatar-block {
+.editors-picks .post-container .post-text .avatar-block {
   border: 2px solid #fff;
   -moz-border-radius: 18px;
   -webkit-border-radius: 18px;
@@ -180,17 +209,18 @@ h2.separator {
   margin-top: -18px;
   overflow: hidden;
 }
-.editors-picks .story-container .story-text .meta {
+.editors-picks .post-container .post-text .post-meta {
   font-size: 11px;
 }
-.editors-picks .story-container .story-text .author-name {
+.editors-picks .post-container .post-text .author-name {
+  color: #333;
   font-weight: bold;
 }
-.editors-picks .story-container .story-text h2 {
+.editors-picks .post-container .post-text h2 {
   line-height: 26px;
 }
-.editors-picks .readmore:after {
-  content: " ↝";
+.editors-picks .post-container .post-text h2 a {
+  color: #333;
 }
 
 .top-stories .story-container {
@@ -274,6 +304,83 @@ h2.separator {
 }
 .top-stories .author-name {
   font-weight: bold;
+}
+
+.post {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  border: 1px solid #eee;
+  border-width: 0 1px 1px 0;
+  padding: 20px;
+  width: 50%;
+}
+.post:nth-child(2n) {
+  border-right-color: transparent;
+}
+.post:last-child, .post:nth-last-child(2) {
+  border-bottom-color: transparent;
+}
+.post .post-image-block {
+  float: left;
+  text-align: center;
+  width: 40%;
+}
+.post .post-image-block .post-image {
+  display: block;
+  line-height: 0;
+}
+.post .post-image-block .post-image .wp-post-image {
+  height: auto;
+  width: 100%;
+}
+.post .post-image-block .post-category {
+  margin-bottom: -14px;
+  position: relative;
+  z-index: 1;
+}
+.post .post-image-block .post-category a {
+  background: rgba(240, 64, 64, 0.8);
+  border: 1px solid #fff;
+  color: #fff;
+  display: inline-block;
+  line-height: 20px;
+  padding: 3px 10px;
+}
+.post .post-image-block .post-category a:hover {
+  background: rgba(244, 116, 116, 0.84);
+  text-decoration: none;
+}
+.post .post-text {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 20px;
+  width: 60%;
+}
+.post .post-text h3 {
+  font-size: 24px;
+  line-height: 26px;
+  margin: 0 0 10px 0;
+}
+.post .post-text h3 a {
+  color: #333;
+}
+.post .avatar-block {
+  border: 2px solid #fff;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  float: left;
+  line-height: 0;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.post .author-block {
+  font-size: 11px;
+  padding: 5px 0;
 }
 
 /*

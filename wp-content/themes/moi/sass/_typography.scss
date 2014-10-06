@@ -14,3 +14,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $alternate-font-family;
     color: #333;
 }
+
+h2.separator {
+    border-bottom: 1px solid #ddd;
+}
