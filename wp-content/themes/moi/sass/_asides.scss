@@ -1,0 +1,76 @@
+.top-stories {
+    .story-container {
+        @include background-size('cover');
+        display: inline-block;
+        max-width: 500px;
+        position: relative;
+        line-height: 0;
+
+        &:hover {
+            .story-info-bg {
+                @include filter(blur(10px) brightness(0.75) contrast(150%));
+            }
+            .extra {
+                max-height: 500px;
+                @include opacity(1);
+                visibility: visible;
+            }
+        }
+    }
+    .story-info {
+        bottom: 0;
+        color: #fff;
+        line-height: 18px;
+        overflow: hidden;
+        position: absolute;
+        padding: 15px;
+        z-index: 1;
+        h2 {
+            color: #fff;
+            line-height: 26px;
+            margin: 0;
+        }
+    }
+    .story-info-bg {
+        bottom: 0;
+        @include filter(blur(10px) brightness(0.75) contrast(150%));
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: -20px;
+        z-index: 0;
+
+        img {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+    .story-info-text {
+        position: relative;
+    }
+    .meta {
+        font-size: 12px;
+    }
+    .extra {
+        max-height: 0;
+        @include opacity(0);
+        @include transition(max-height 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000));
+    }
+    .avatar {
+        @include border-radius(16px);
+        display: inline-block;
+        overflow: hidden;
+        margin: 4px 4px 4px 0;
+        vertical-align: middle;
+    }
+    .author-block {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 14px;
+    }
+    .author-name {
+        font-weight: bold;
+    }
+}
