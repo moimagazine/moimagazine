@@ -8,7 +8,9 @@
     }
 }
 .readmore {
-    &:after {
-        content: " \0219d"
-    }
+    font: normal 14px $serif-font;
+}
+
+*, *:after, *:before {
+    @include box-sizing(border-box);
 }

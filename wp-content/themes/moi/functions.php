@@ -1,6 +1,6 @@
 <?php
-add_action('after_setup_theme', 'moi_setup');
 
+add_action('after_setup_theme', 'moi_setup');
 function moi_setup() {
 
     // Add default posts and comments RSS feed links to head.
@@ -37,19 +37,39 @@ function moi_setup() {
 }
 
 add_action('wp_enqueue_scripts', 'moi_scripts');
-
 function moi_scripts() {
     wp_enqueue_style('moi-style', get_stylesheet_uri());
 }
 
 add_filter('image_size_names_choose', 'moi_image_sizes');
-
 function moi_image_sizes($presets) {
     $custom = array(
         "vertical" => __("Vertical"),
         "vertical-large" => __("Vertical (Large)")
     );
     return array_merge($presets, $custom);
+}
+
+add_filter( 'wp_title', 'moi_wp_title', 10, 2 );
+function moi_wp_title( $title, $sep ) {
+    global $paged, $page;
+
+    if ( is_feed() )
+        return $title;
+
+    // Add the site name.
+    $title .= get_bloginfo( 'name' );
+
+    // Add the site description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) )
+        $title = "$title $sep $site_description";
+
+    // Add a page number if necessary.
+    if ( $paged >= 2 || $page >= 2 )
+        $title = "$title $sep " . sprintf( __( 'Page %s', 'moi' ), max( $paged, $page ) );
+
+    return $title;
 }
 
 function the_main_category_link() {
@@ -60,4 +80,9 @@ function the_main_category_link() {
 function the_main_category() {
     $category = get_the_category();
     echo $category[0]->name;
+}
+
+function the_main_category_slug() {
+    $category = get_the_category();
+    echo $category[0]->slug;
 }

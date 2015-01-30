@@ -15,3 +15,23 @@
         @media only screen and (min-width: $desktop-min-width) { @content; }
     }
 }
+
+@mixin font-face($font-family, $path, $font-weight: normal, $font-style: normal) {
+    @font-face {
+        font-family: $font-family;
+        src: url('#{$path}.eot');
+        src: url('#{$path}.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}.woff2') format('woff2'),
+        url('#{$path}.woff') format('woff'),
+        url('#{$path}.ttf') format('truetype');
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }  /* Firefox 18- */
+    &::-moz-placeholder { @content; } /* Firefox 19+ */
+    &:-ms-input-placeholder { @content; }
+}

@@ -1,29 +1,65 @@
 body, html {
     background: #fff;
+    color: #333;
+    font-family: $body-font;
+    font-size: 16px;
     margin: 0;
     padding: 0;
-}
-
-#content-inner {
-    background: #fff;
-    color: #333;
-    font-family: $default-font-family;
-    font-size: 16px;
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 100%;
     -webkit-font-smoothing: antialiased;
 }
 
-header {
+a, a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-family: $alternate-font;
+    font-weight: normal;
+    line-height: 1.2;
+    text-transform: uppercase;
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+h1 { font-size: 36px }
+h2 { font-size: 30px }
+h3 { font-size: 24px }
+h4 { font-size: 18px }
+h5 { font-size: 14px }
+h6 { font-size: 12px }
+
+h1 {
+    font-family: $serif-font;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+.page-width {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+}
+
+#header-outer {
+    background: #141414;
 
     #logo {
         float: left;
     }
 
     nav {
-        text-align: right;
         margin-left: 200px;
+        padding-top: 25px;
     }
 
     ul {
@@ -36,42 +72,45 @@ header {
         display: inline-block;
 
         a {
+            color: #fff;
             display: block;
-            margin-left: 10px;
-            padding: 13px 10px;
-            @include transition(background 150ms, color 150ms);
+            margin-left: 5px;
+            padding: 6px 12px;
+            @include transition(background-color 200ms);
 
             &:hover {
-                background: $accent-color;
                 color: #fff;
                 text-decoration: none;
             }
         }
     }
 
-    .social-icons {
-        a {
-            color: #ccc;
-            padding: 10px 20px;
-        }
-    }
+    .music-category   { &.selected a, a:hover { background-color: $music-category } }
+    .art-category     { &.selected a, a:hover { background-color: $art-category } }
+    .fashion-category { &.selected a, a:hover { background-color: $fashion-category } }
+    .beauty-category  { &.selected a, a:hover { background-color: $beauty-category } }
+    .sex-category     { &.selected a, a:hover { background-color: $sex-category } }
+    .living-category  { &.selected a, a:hover { background-color: $living-category } }
+    .shop-category    { &.selected a, a:hover { background-color: $shop-category } }
 
     .main-navigation {
-        border-top: #eee 1px solid;
+        font-family: $alternate-font;
+        font-size: 20px;
+        text-transform: uppercase;
     }
 
     .search-container {
-        padding: 8px;
-        position: relative;
+        float: right;
     }
 
     .search-field {
         @include appearance(none);
-        border: 1px solid #ddd;
+        border: 0;
         @include border-radius(20px);
         font-size: 14px;
+        height: 28px;
         outline: none;
-        padding: 4px 32px 4px 10px;
+        padding: 5px 32px 5px 10px;
         @include transition(width 500ms);
         width: 130px;
 
@@ -88,7 +127,89 @@ header {
         height: 24px;
         margin-left: -32px;
         text-indent: -999px;
+        vertical-align: bottom;
         width: 24px;
+    }
+}
+
+#sub-header {
+    padding: 20px;
+
+    .right {
+        text-align: center;
+        float: right;
+    }
+
+    .social-icons {
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+
+        a {
+            color: #000;
+            display: block;
+            font-size: 20px;
+            padding: 5px 0;
+            margin: 0 3px;
+            @include transition(color 250ms);
+
+            &:hover {
+                color: $red;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .subscribe-box {
+        border: 2px solid #000;
+        font: normal 12px $alternate-font;
+        max-width: 160px;
+        margin: 0 auto 20px auto;
+        padding: 4px;
+        text-transform: uppercase;
+
+        .title {
+            font-size: 24px;
+        }
+
+        span {
+            font: normal 16px $serif-font;
+            text-transform: none;
+        }
+
+        form {
+            margin-top: -10px;
+        }
+
+        input {
+            border: 2px solid $red;
+            background: $red;
+            color: #fff;
+            font: 300 12px $alternate-font;
+            padding: 3px 4px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            top: 16px;
+            @include transition(border-color 250ms);
+
+            @include placeholder {
+                color: #fff;
+            }
+
+            &:focus {
+                border-color: #000;
+                outline: none;
+            }
+        }
     }
 }
 

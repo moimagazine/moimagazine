@@ -18,11 +18,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import "mixins";
 @import "general";
 @import "layout";
-@import "typography";
+@import "fonts";
 @import "homepage";
 @import "asides";
 @import "blocks";
-@import "../webfonts/ss-social-regular";
+@import "typography";
 
 .screen-reader-text {
     position: absolute;

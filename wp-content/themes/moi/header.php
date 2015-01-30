@@ -2,7 +2,7 @@
 /**
  * The header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="content">
+ * Displays all of the <head> section and everything up till <article>
  *
  * @package Moi Magazine
  */
@@ -28,27 +28,48 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<div id="header-outer" class="clearfix">
+    <div id="header-inner" class="page-width">
+        <a id="logo" href="/">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/moi-logo.svg" height="90" alt="Moi Magazine" />
+        </a>
+        <nav>
+            <ul class="main-navigation">
+                <li class="music-category"><a href="/">Music</a></li>
+                <li class="art-category"><a href="/">Art</a></li>
+                <li class="fashion-category"><a href="/">Fashion</a></li>
+                <li class="beauty-category"><a href="/">Beauty</a></li>
+                <li class="sex-category"><a href="/">Sex &amp; Relationships</a></li>
+                <li class="living-category"><a href="/">Living</a></li>
+                <li class="shop-category"><a href="/">Shop</a></li>
+                <li class="search-container">
+                    <?php get_search_form() ?>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="sub-header" class="page-width">
+    <div class="right">
+        <ul class="social-icons ss-icon">
+            <li><a href="https://www.twitter.com/" title="Twitter">Twitter</a></li>
+            <li><a href="https://www.facebook.com/" title="Facebook">Facebook</a></li>
+            <li><a href="https://www.tumblr.com/" title="Tumblr">Tumblr</a></li>
+            <li><a href="https://www.instagram.com/" title="Instagram">Instagram</a></li>
+            <li><a href="<?= bloginfo('rss2_url') ?>" title="RSS 2.0 Feed">RSS</a></li>
+        </ul>
+        <div class="subscribe-box">
+            <div class="title">Subscribe</div>
+            <div class="text"><span>sign up</span> today for daily updates from Moi</div>
+            <form>
+                <input type="email" placeholder="Email Address" />
+            </form>
+        </div>
+    </div>
+    <div class="left">
+        <img src="http://placehold.it/728x90&text=Leaderboard+(728x90)" width="728" height="90" />
+    </div>
+</div>
 <div id="content-outer">
-    <div id="content-inner">
-        <header>
-            <a id="logo" href="/">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/moi.svg" width="200" height="100" alt="Moi Magazine" />
-            </a>
-            <nav>
-                <ul class="social-icons ss-icon">
-                    <li><a href="https://www.instagram.com/">Instagram</a></li>
-                    <li><a href="https://www.tumblr.com/">Tumblr</a></li>
-                    <li><a href="https://www.twitter.com/">Twitter</a></li>
-                    <li><a href="https://www.facebook.com/">Facebook</a></li>
-                </ul>
-                <ul class="main-navigation">
-                    <li><a href="/">Fashion</a></li>
-                    <li><a href="/">Beauty</a></li>
-                    <li><a href="/">Store</a></li>
-                    <li class="search-container">
-                        <?php get_search_form() ?>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <div id="content-inner" class="page-width">
         <article>

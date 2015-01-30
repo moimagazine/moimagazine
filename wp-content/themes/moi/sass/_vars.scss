@@ -2,7 +2,23 @@
 $mobile-max-width:   600px;
 $desktop-min-width: 1024px;
 
-$accent-color: #f04040;
+$color1: #e4bb18;
+$color2: #275AF3;
+$color3: #db1c18;
+$color4: #23cc20;
 
-$default-font-family: 'Lato', Arial, sans-serif;
-$alternate-font-family: 'PT Serif', serif;
+$music-category:   $color1;
+$art-category:     $color1;
+$fashion-category: $color2;
+$beauty-category:  $color2;
+$sex-category:     $color3;
+$living-category:  $color3;
+$shop-category:    $color4;
+
+$red: #db1c18;
+
+$body-font: 'Fira Sans', sans-serif;
+$serif-font: 'Old Standard', serif;
+$alternate-font: 'Oswald', serif;
+
+$font-path-prefix: 'webfonts';

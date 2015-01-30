@@ -1,0 +1,12 @@
+@include font-face('Fira Sans', "#{$font-path-prefix}/firasans/firasans-book-webfont");
+@include font-face('Fira Sans', "#{$font-path-prefix}/firasans/firasans-bookitalic-webfont", normal, italic);
+@include font-face('Fira Sans', "#{$font-path-prefix}/firasans/firasans-medium-webfont", bold);
+@include font-face('Fira Sans', "#{$font-path-prefix}/firasans/firasans-mediumitalic-webfont", bold, italic);
+
+@include font-face('Oswald', "#{$font-path-prefix}/oswald/oswald-regular-webfont");
+@include font-face('Oswald', "#{$font-path-prefix}/oswald/oswald-light-webfont", 300);
+
+@include font-face('Old Standard', "#{$font-path-prefix}/oldstandard/oldstandard-italic-webfont");
+
+@include font-face('SS Social Circle', "#{$font-path-prefix}/sssocialcircle/ss-social-circle-webfont");
+@import "../webfonts/sssocialcircle/ss-social-circle";
