@@ -1,26 +1,21 @@
 === WP Retina 2x ===
 Contributors: TigrouMeow
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JAWE2XWH7ZE5U
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H2S7S3G4XMJ6J
 Tags: retina, images, image, admin, attachment, media, files, iphone, ipad, plugin, picture, pictures
 License: GPLv2 or later
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 2.0.4
+Tested up to: 4.0
+Stable tag: 2.4.0
 
-Make your website look beautiful and smooth on Retina (high-DPI) displays such as the MacBook Pro Retina and the iPad.
+Make your website look beautiful and crisp on Retina / High DPI displays.
 
 == Description ==
 
-This plugin creates the image files required by the Retina (high-DPI) devices and displays them to your visitors accordingly. Your website will look beautiful and sharp on every device. The retina images will be generated for you automatically, served, and you will be able to control everything from the Retina Dashboard.
+This plugin creates the image files required by the Retina (High DPI) devices and displays them to your visitors accordingly. Your website will look beautiful and crisp on every device. The retina images will be generated for you automatically (you can also do it manually) and served to the retina devices.
 
-It supports 4 different methods to serve the images to your visitors:
+It supports different methods to serve the images to your visitors, for instance: PictureFill (future HTML standard + its JS polyfill), Retina.js (JS only), IMG Rewrite (on-the-fly HTML rewrite). Retina-Images (server handler). Pick the one that works best with your hosting and WordPress environment. Multi-site are also supported.
 
-* PictureFill: The Picturefill method rewrites the HTML on-the-fly in order to use the new SRCSET. Since it is not supported by the browsers yet, the JS polyfill Picturefill is used to load the images. It is now the recommended method.
-* Retina.js: The Retina JS method is a 100% JS solution. The HTML loads the normal images, then if a retina device is detected, the retina images will be loaded. It is fail-safe but not efficient (images are loaded twice).
-* IMG Rewrite: The IMG Rewrite method rewrites IMG's SRC tags on-the-fly with the retina images directly if the device supports them. This method does not work with most caching solutions.
-* Retina-Images: The Retina-Images method uses a server handler: the images will be loaded through the Retina-Images PHP handler. Your .htaccess will be modified automatically.
-
-Pick the one that works best with your hosting and environment. WordPress Multi-site are supported as well. WP Retina 2x also loves WPEngine and strongly recommend it for your hosting.
+More information and tutorial available one http://apps.meow.fr/wp-retina-2x/.
 
 Languages: English, French.
 
@@ -31,6 +26,26 @@ Languages: English, French.
 3. Check if it works! - if it doesn't, read the FAQ, the tutorial, and check the forums.
 
 == Changelog ==
+
+= 2.4.0 =
+* Fix: Cropped images from the side now supported.
+* Fix: Avoid loading the PHP Simple HTML DOM Parser twice.
+* Update: PictureFill, from 2.1.0 to 2.2.0.
+* Change: Now create retina files by default.
+* Info: If you are using LIGHTROOM, please check my new plugin called WP/LR Sync, you might find it very useful (apps.meow.fr/wplr-sync/). I am also preparing WP Retina 2x for a Pro version. Many improvements are on the way so if you have any request, please let me know here: https://wordpress.org/support/topic/what-about-a-pro-version.
+
+= 2.2.0 =
+* Change: Links, documentation, readme.
+
+= 2.0.8 =
+* Add: Option to disable Retina in the WP Admin. Actually now disabled by default to avoid an issue with NextGen.
+* Add: Option to disable the loading of the PictureFill script.
+* Update: PictureFill, from 2.1.0 (2014-08-20) to 2.1.0 (2014-10-07).
+* Change: Flattr button doesn't pop anymore. I know, that was annoying ;)
+* Info: I am thinking of adding features through a pro version. I would love to know your thoughts. Please check this: https://wordpress.org/support/topic/what-about-a-pro-version
+
+= 2.0.6 =
+* Works with WP 4.
 
 = 2.0.4 =
 * Fix: PictureFill method now handles special characters.
@@ -200,88 +215,11 @@ Quick and easy installation:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Check the settings of WP Retina 2x in the WordPress administration screen.
 4. Check the Retina Dashboard.
-6. Read the tutorial about the plugin on <a href='http://www.totorotimes.com/wp-retina-2x-plugin/'>Totoro Times</a>.
+6. Read the tutorial about the plugin: <a href='http://apps.meow.fr/wp-retina-2x/tutorial//'>WP Retina 2x Tutorial</a>.
 
 == Frequently Asked Questions ==
 
-= What does this plugin do? =
-It creates the image files required by the Retina devices. In the case the resolution of the original images are not high enough, you will see a warning in the Media Library where you will be able to re-upload bigger images. The plugin then recognizes different devices and send the images required accordingly.
-
-= What are those new images? =
-The new images use the same name as your original files, with an "@2x" string added right before the extension. For example, if you have a Gundam-150x150.jpg file, a new Gundam-150x150@2x.jpg will be created. Its size will be doubled. This naming convention actually comes from Apple.
-
-= Can I create all the Retina images at once for my whole Media Library? =
-Yes, check the Retina Dashboard screen (under the Media menu).
-
-= I don't have a Retina device, how can I check whether it works or not? =
-Go to the closest Apple Store and try it out! More seriously, you can check the "Debug" option in the plugin settings. Then your blog will always behave as if the client is using a Retina Display.
-
-= Does it work for other High-DPI devices? =
-I tried it on a few High-DPI mobile devices and it works fine.
-
-= It doesn't work, what should I check? =
-* Are the images created? Check the Retina Dasboard (under Media).
-* Are you using an "Image Size" in your posts that is NOT "Full Size"? The plugin generates Retina images for all your images except (obviously) the "Full Sizes" and the ones you opted-out in the Settings.
-* Are you using Cloudflare? The Cloudflare cache is too "powerful" at the moment, so please set the plugin to use the Client-side method.
-
-= The logo or icons of my theme are not displayed as Retina, why? =
-The plugin can transform the images that go through the WordPress API and the 'Image Sizes' properly (which means that they are part of the Media Library). Themes often uses a one-time customized size for the logo, and for that reason the image wouldn't be taken care of by the plugin. The easiest way to go around this is to create the Retina image by yourself. For example, if you are logo is 200x100 and named 'logo.png', upload a 400x200 version of that logo named 'logo@2x.png' next to the other one. It will work immediately.
-
-= My logo / images appeared twice bigger on Retina =
-Let's say you have a logo which is 200x400. The retina logo would be 400*800, but it should STILL be shown as a 200x400 image relatively to the rest of your website. The workaround is to keep it simple and neat: always set the (normal) width and the height for all your images (in HTML directly or via CSS).
-
-= I have issues with images in my slideshows / sliders =
-That is unfortunately the most infamous issue to expect with this "Retina" technology. A lot of developers ignore it, sometimes don't code properly, think that what they did is "enough". You should ask the developer to do something about it, and if he cares, he will do it. You can also do it by yourself, check the next question.
-
-= I have issues with images loaded on the fly / asynchronously =
-If you use the Server-side, it might work properly. However, with the Client-side, you will probably have issues. The explanation is that the script cannot apply Retina on the images it is not aware of. The Retina script must be called after those operations. You can see how to resolve this issue <a href='https://github.com/imulus/retinajs/issues/19'>on this Github discussion</a>. Basically, it involves adding this code after loading new images:
-
-`$('img').each(function(){
-  new RetinaImage(this);
-});`
-
-= It's not working with multisite + subdomains + the server-method, what can I do? =
-Jeremy the creator of "Retina-Images" helped me with this issue. Thanks to him, it nows work perfectly since WP Retina 2x 0.4! Although you will have to do edit the .htaccess file by yourself, and to add the RewriteRule "^files/(.+) wp-content/plugins/wp-retina-2x/wr2x_image.php?ms=true&file=$1 [L]" as the first RewriteRule.
-
-= I use a CDN and it doesn't work =
-The retina files have to be sent to the CDN, then the plugin should work fine (using the client-method). The plugin in charge of sending the files to the CDN is not the WP Retina 2x plugin, and cannot. 
-
-The developer of the other plugin has to implement support for the Retina files. It should be very easy! In order to help those developers, I created two WordPress actions (when a retina file is added or removed) and they both send two arguments: the attachment id and the full path to the retina file.
-
-* wr2x_retina_file_added
-* wr2x_retina_file_removed
-
-= WordPress stops responding when [...] =
-Maybe you don't have enough memory allocated to PHP or the script takes longer than the maximum execution time limit. You can change those values using the PHP Configuration File (php.ini):
-
-* php_value memory_limit = "128M";
-* max_execution_time = 360;
-
-... or by modifying the WordPress PHP files (wp-settings.php ideally):
-
-* ini_set('memory_limit', '512M');
-* ini_set('max_execution_time', 300);
-
-Please note that it doesn't work with some cheap web hosts, as they don't want you do to that instead. The real issue can also be tracked in the PHP error logs.
-
-= I am using CSS3 filters and the Retina images look blurry =
-It is a known issue and it is not related to the plugin. You can find the answer on this post: http://matthewhappen.com/fixing-css3-filter-blur-on-retina-displays/
-
-= I still don't understand a thing! =
-Please check my tutorial and introduction to Retina Displays on <a href='http://www.totorotimes.com/wp-retina-2x-plugin/'>Totoro Times</a>. You should also have a look at the WordPress forums. Ask a friend to help you.
-
-= It still doesn't work! =
-Create a new support thread <a href='http://wordpress.org/support/plugin/wp-retina-2x'>here</a>. I always look at the new tickets. However, I only reply if it seems there is a bug in the plugin and I will always try my best to resolve it.
-
-= This plugin is great, how can I thank you? =
-Thanks for asking, since we, developers, get usually 10x more complains than thanks! I don't blame anyone, I persnnally don't say thank you to every single developer of all the software I am using ;) But if you are happy, please write a <a href='http://wordpress.org/support/view/plugin-reviews/wp-retina-2x'>nice review here</a>.
-
-= Can I contact you? =
-Yes and no. I cannot provide free support anymore since it always take too much time and 99% not a problem of the plugin. Ask a developer friend first or hire one, they will help you. If you want me to help, then consider hiring me as well. If you really think you found a bug, then write it down in the WordPress forum with screenshot, you server configuration, URLs, etc.
-
-= I donated, can I get rid of the donation button? =
-Of course. I don't like to see too many of those buttons neither ;) You can disable the donation buttons from all my plugins by adding this to your wp-config.php:
-`define('WP_HIDE_DONATION_BUTTONS', true);`
+The FAQ can be found at http://apps.meow.fr/wp-retina-2x/faq/.
 
 == Screenshots ==
 

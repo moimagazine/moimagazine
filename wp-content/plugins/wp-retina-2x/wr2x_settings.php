@@ -96,7 +96,7 @@ function wr2x_admin_init() {
                 'label' => __( 'Auto Generate', 'wp-retina-2x' ),
                 'desc' => __( 'Generate Retina images automatically when images are uploaded to the Media Library.', 'wp-retina-2x' ),
                 'type' => 'checkbox',
-                'default' => false
+                'default' => true
             )
         ),
 		'wr2x_advanced' => array(
@@ -111,7 +111,7 @@ function wr2x_admin_init() {
                         The <b>Retina-Images method</b> uses a server handler: the images will be loaded through the <a href="https://github.com/Retina-Images/Retina-Images/">Retina-Images</a> PHP handler. Your .htaccess will be modified automatically. It might be too difficult to set-up if it does not work right away.<br /><br />
                 	', 'wp-retina-2x' ),
                 'type' => 'radio',
-                'default' => 'retina.js',
+                'default' => 'Picturefill',
                 'options' => array(
                     'Picturefill' => __( "Picturefill", 'wp-retina-2x' ),
                     'HTML Rewrite' => __( "IMG Rewrite", 'wp-retina-2x' ),
@@ -127,10 +127,24 @@ function wr2x_admin_init() {
                 'type' => 'text',
                 'default' => 90
             ),
+            array(
+                'name' => 'picturefill_noscript',
+                'label' => __( 'Skip Picturefill Script', 'wp-retina-2x' ),
+                'desc' => __( 'The script for Picturefill will not be loaded. Only the browsers with src-set support (e.g. Chrome) will display images. You can also load the Picturefill script manually.', 'wp-retina-2x' ),
+                'type' => 'checkbox',
+                'default' => false
+            ),
 			array(
                 'name' => 'debug',
                 'label' => __( 'Debug Mode', 'wp-retina-2x' ),
                 'desc' => __( 'If checked, the client will be always served Retina images. <br />Please use it for testing purposes. It also generates a <a href="' . plugins_url("wp-retina-2x") . '/wp-retina-2x.log">log file</a> in the plugin folder.', 'wp-retina-2x' ),
+                'type' => 'checkbox',
+                'default' => false
+            ),
+            array(
+                'name' => 'retina_admin',
+                'label' => __( 'Retina Admin', 'wp-retina-2x' ),
+                'desc' => __( 'If checked, the WordPress Admin will also be Retina. Some plugins (like NextGen) do not like Retina enabled in the admin.', 'wp-retina-2x' ),
                 'type' => 'checkbox',
                 'default' => false
             ),
