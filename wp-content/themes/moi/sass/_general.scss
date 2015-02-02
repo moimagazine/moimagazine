@@ -7,9 +7,6 @@
         clear: both;
     }
 }
-.readmore {
-    font: normal 14px $serif-font;
-}
 
 *, *:after, *:before {
     @include box-sizing(border-box);

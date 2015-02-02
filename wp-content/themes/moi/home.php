@@ -19,6 +19,9 @@
         $stickies->the_post();
         get_template_part('partials/loop', 'editorspick-large');
         ?>
+        <div class="nav-block">
+            <a href="javascript:void(0)" class="loadmore">More</a>
+        </div>
     </div>
     <div class="col col3">
         <?php
@@ -43,6 +46,6 @@
     ?>
 </div>
 <div class="nav-block">
-    <a href="#" class="nextpage">Next Page &raquo;</a>
+    <a href="javascript:void(0)" class="loadmore">More</a>
 </div>
 <?php get_footer() ?>

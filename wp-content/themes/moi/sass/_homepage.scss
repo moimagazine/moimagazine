@@ -30,6 +30,10 @@
         a, a:hover {
             color: inherit;
         }
+
+        .loadmore {
+            color: #000;
+        }
     }
 
     .post-container {
@@ -124,7 +128,7 @@
 }
 
 .latest-posts {
-    margin: 0 -20px;
+    margin: 0 -20px -40px -20px;
 
     .post-container {
         float: left;

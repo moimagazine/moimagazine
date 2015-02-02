@@ -1,0 +1,44 @@
+.section-heading {
+    clear: both;
+}
+
+.readmore {
+    font: normal 14px $serif-font;
+}
+
+.nav-block {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.loadmore {
+    background: #fff;
+    border: 2px solid #000;
+    @include box-shadow(3px 3px 0 #000);
+    color: #000;
+    display: inline-block;
+    font: normal 18px $alternate-font;
+    padding: 2px 20px;
+    position: relative;
+    text-transform: uppercase;
+    @include transition(background 250ms, color 250ms, box-shadow 250ms, transform 250ms);
+
+    &:after {
+        border: 1px solid #fff;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover {
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+    }
+    &:active {
+        @include transform(translate(2px, 2px));
+        @include box-shadow(none);
+    }
+}

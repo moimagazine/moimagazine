@@ -19,9 +19,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .clearfix:after {
   clear: both; }
 
-.readmore {
-  font: normal 14px "Old Standard", serif; }
-
 *, *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -242,7 +239,9 @@ article {
   padding: 0 20px; }
 
 .instagram.section-heading {
-  margin: 50px 20px 0 20px; }
+  clear: none;
+  margin: 0 20px;
+  padding-top: 50px; }
 
 .instagram-feed {
   margin: 0 10px; }
@@ -582,6 +581,8 @@ html:hover [class^="ss-"] {
       margin: 15px 0; }
     .editors-picks .col2 a, .editors-picks .col2 a:hover {
       color: inherit; }
+    .editors-picks .col2 .loadmore {
+      color: #000; }
   .editors-picks .post-container {
     padding: 20px; }
 
@@ -714,7 +715,7 @@ html:hover [class^="ss-"] {
   transform: translateY(0); }
 
 .latest-posts {
-  margin: 0 -20px; }
+  margin: 0 -20px -40px -20px; }
   .latest-posts .post-container {
     float: left;
     margin-bottom: 40px;
@@ -808,6 +809,53 @@ html:hover [class^="ss-"] {
   line-height: 14px; }
 .top-stories .author-name {
   font-weight: bold; }
+
+.section-heading {
+  clear: both; }
+
+.readmore {
+  font: normal 14px "Old Standard", serif; }
+
+.nav-block {
+  margin: 40px 0;
+  text-align: center; }
+
+.loadmore {
+  background: #fff;
+  border: 2px solid #000;
+  -moz-box-shadow: 3px 3px 0 #000;
+  -webkit-box-shadow: 3px 3px 0 #000;
+  box-shadow: 3px 3px 0 #000;
+  color: #000;
+  display: inline-block;
+  font: normal 18px "Oswald", serif;
+  padding: 2px 20px;
+  position: relative;
+  text-transform: uppercase;
+  -moz-transition: background 250ms, color 250ms, box-shadow 250ms, -moz-transform 250ms;
+  -o-transition: background 250ms, color 250ms, box-shadow 250ms, -o-transform 250ms;
+  -webkit-transition: background 250ms, color 250ms, box-shadow 250ms, -webkit-transform 250ms;
+  transition: background 250ms, color 250ms, box-shadow 250ms, transform 250ms; }
+  .loadmore:after {
+    border: 1px solid #fff;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0; }
+  .loadmore:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none; }
+  .loadmore:active {
+    -moz-transform: translate(2px, 2px);
+    -ms-transform: translate(2px, 2px);
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
 
 .screen-reader-text {
   position: absolute;
