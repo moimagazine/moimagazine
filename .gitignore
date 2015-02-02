@@ -2,3 +2,6 @@
 wp-content/uploads
 wp-config.php
 *.log
+style.css.map
+config.codekit
+config.rb
