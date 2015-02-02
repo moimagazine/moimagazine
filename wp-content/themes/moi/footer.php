@@ -12,6 +12,10 @@
 <footer>
     <div id="footer-outer" class="page-width">
         <div id="footer-inner">
+            <form method="post">
+                <input type="email" class="email" placeholder="Your email address" /><!--
+             --><input type="submit" class="submit" value="&gt;" />
+            </form>
             <ul>
                 <li><a href="/">About Moi</a></li>
                 <li><a href="/">The Team</a></li>

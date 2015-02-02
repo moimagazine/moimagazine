@@ -256,6 +256,43 @@ footer {
 #footer-inner {
   border-top: 1px solid #000;
   padding: 50px 0 50px 0; }
+  #footer-inner form {
+    float: right; }
+  #footer-inner .email, #footer-inner .submit {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #000;
+    border: 1px solid #fff;
+    -moz-box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #000;
+    -webkit-box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #000;
+    box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #000;
+    color: #fff;
+    font: normal 14px/20px "Fira Sans", sans-serif;
+    margin: 0;
+    padding: 8px 14px;
+    height: 36px;
+    vertical-align: bottom;
+    -moz-transition: background 250ms;
+    -o-transition: background 250ms;
+    -webkit-transition: background 250ms;
+    transition: background 250ms;
+    /* Firefox 18- */
+    /* Firefox 19+ */ }
+    #footer-inner .email:focus, #footer-inner .submit:focus {
+      outline: none; }
+    #footer-inner .email::-webkit-input-placeholder, #footer-inner .submit::-webkit-input-placeholder {
+      color: #ddd; }
+    #footer-inner .email:-moz-placeholder, #footer-inner .submit:-moz-placeholder {
+      color: #ddd; }
+    #footer-inner .email::-moz-placeholder, #footer-inner .submit::-moz-placeholder {
+      color: #ddd; }
+    #footer-inner .email:-ms-input-placeholder, #footer-inner .submit:-ms-input-placeholder {
+      color: #ddd; }
+  #footer-inner .email {
+    border-right: 0; }
+  #footer-inner .email:focus ~ .submit, #footer-inner .submit:hover {
+    background: #fff;
+    color: #000; }
   #footer-inner ul {
     display: -webkit-flex;
     display: flex;

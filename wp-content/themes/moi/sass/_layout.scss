@@ -248,6 +248,41 @@ footer {
     border-top: 1px solid #000;
     padding: 50px 0 50px 0;
 
+    form {
+        float: right;
+    }
+
+    .email, .submit {
+        @include appearance(none);
+        background: #000;
+        border: 1px solid #fff;
+        @include box-shadow(inset 1px 1px 0 #000, inset -1px -1px 0 #000);
+        color: #fff;
+        font: normal 14px/20px $body-font;
+        margin: 0;
+        padding: 8px 14px;
+        height: 36px;
+        vertical-align: bottom;
+        @include transition(background 250ms);
+
+        &:focus {
+            outline: none;
+        }
+
+        @include placeholder {
+            color: #ddd;
+        }
+    }
+
+    .email {
+        border-right: 0;
+    }
+
+    .email:focus ~ .submit, .submit:hover {
+        background: #fff;
+        color: #000;
+    }
+
     ul {
         @include display-flex();
         @include flex-direction(column);
