@@ -25,6 +25,7 @@
 <meta name="application-name" content="Moi Magazine"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
 <meta name="msapplication-TileImage" content="/assets/mstile-144x144.png" />
+<?php wp_enqueue_script("jquery"); ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -50,7 +51,7 @@
     </div>
 </div>
 <div id="sub-header" class="page-width">
-    <div class="right">
+    <div class="pull-right">
         <ul class="social-icons ss-icon">
             <li><a href="https://www.twitter.com/" title="Twitter">Twitter</a></li>
             <li><a href="https://www.facebook.com/" title="Facebook">Facebook</a></li>

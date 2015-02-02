@@ -31,6 +31,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
   box-sizing: border-box;
 }
 
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
 body, html {
   background: #fff;
   color: #333;
@@ -67,7 +75,7 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 h3 {
@@ -105,10 +113,10 @@ h2 {
 }
 #header-outer #logo {
   float: left;
+  font-size: 0;
 }
 #header-outer nav {
   margin-left: 200px;
-  padding-top: 25px;
 }
 #header-outer ul {
   list-style: none;
@@ -117,49 +125,32 @@ h2 {
 }
 #header-outer li {
   display: inline-block;
+  margin-top: 28px;
 }
-#header-outer li a {
+#header-outer .main-navigation {
+  font-family: "Oswald", serif;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+#header-outer .main-navigation a {
   color: #fff;
   display: block;
   margin-left: 5px;
-  padding: 6px 12px;
+  padding: 10px 12px 20px 12px;
   -webkit-transition: background-color 200ms;
   -moz-transition: background-color 200ms;
   -o-transition: background-color 200ms;
   transition: background-color 200ms;
 }
-#header-outer li a:hover {
+#header-outer .main-navigation a:hover {
   color: #fff;
   text-decoration: none;
 }
-#header-outer .music-category.selected a, #header-outer .music-category a:hover {
-  background-color: #e4bb18;
-}
-#header-outer .art-category.selected a, #header-outer .art-category a:hover {
-  background-color: #e4bb18;
-}
-#header-outer .fashion-category.selected a, #header-outer .fashion-category a:hover {
-  background-color: #275af3;
-}
-#header-outer .beauty-category.selected a, #header-outer .beauty-category a:hover {
-  background-color: #275af3;
-}
-#header-outer .sex-category.selected a, #header-outer .sex-category a:hover {
-  background-color: #db1c18;
-}
-#header-outer .living-category.selected a, #header-outer .living-category a:hover {
-  background-color: #db1c18;
-}
-#header-outer .shop-category.selected a, #header-outer .shop-category a:hover {
-  background-color: #23cc20;
-}
-#header-outer .main-navigation {
-  font-family: "Oswald", serif;
-  font-size: 20px;
-  text-transform: uppercase;
-}
 #header-outer .search-container {
   float: right;
+  font-size: 0;
+  margin-top: 38px;
 }
 #header-outer .search-field {
   -webkit-appearance: none;
@@ -197,13 +188,33 @@ h2 {
   vertical-align: bottom;
   width: 24px;
 }
+#header-outer .music-category.selected a, #header-outer .music-category a:hover {
+  background-color: #e4bb18;
+}
+#header-outer .art-category.selected a, #header-outer .art-category a:hover {
+  background-color: #e4bb18;
+}
+#header-outer .fashion-category.selected a, #header-outer .fashion-category a:hover {
+  background-color: #275af3;
+}
+#header-outer .beauty-category.selected a, #header-outer .beauty-category a:hover {
+  background-color: #275af3;
+}
+#header-outer .sex-category.selected a, #header-outer .sex-category a:hover {
+  background-color: #db1c18;
+}
+#header-outer .living-category.selected a, #header-outer .living-category a:hover {
+  background-color: #db1c18;
+}
+#header-outer .shop-category.selected a, #header-outer .shop-category a:hover {
+  background-color: #23cc20;
+}
 
 #sub-header {
   padding: 20px;
 }
-#sub-header .right {
+#sub-header .pull-right {
   text-align: center;
-  float: right;
 }
 #sub-header .social-icons {
   margin-bottom: 10px;
@@ -286,6 +297,14 @@ h2 {
 article {
   clear: both;
   padding: 0 20px;
+}
+
+.instagram.section-heading {
+  margin: 50px 0 0 0;
+}
+
+.instagram-feed {
+  margin: 0 -10px;
 }
 
 footer {
@@ -860,12 +879,11 @@ html:hover [class^="ss-"] {
   max-height: 242px;
 }
 .latest-posts .post-title {
-  font: bold 18px/18px "Old Standard", serif;
+  font: normal 18px/18px "Old Standard", serif;
   text-transform: none;
   margin: 0;
 }
 .latest-posts .excerpt {
-  text-align: justify;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;

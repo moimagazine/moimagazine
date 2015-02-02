@@ -72,6 +72,15 @@ function moi_wp_title( $title, $sep ) {
     return $title;
 }
 
+add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
+function remove_jquery_migrate(&$scripts) {
+    if ( ! is_admin()) {
+        $scripts->remove('jquery');
+        $scripts->add('jquery', false, array('jquery-core'));
+    }
+}
+
+
 function the_main_category_link() {
     $category = get_the_category();
     echo get_category_link($category[0]->cat_ID);

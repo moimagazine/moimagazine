@@ -146,13 +146,12 @@
     }
 
     .post-title {
-        font: bold 18px/18px $serif-font;
+        font: normal 18px/18px $serif-font;
         text-transform: none;
         margin: 0;
     }
 
     .excerpt {
-        text-align: justify;
         @include hyphens(auto);
         text-overflow: ellipsis;
     }

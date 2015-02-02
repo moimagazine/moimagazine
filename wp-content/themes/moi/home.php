@@ -30,7 +30,7 @@
     </div>
     <?php wp_reset_postdata() ?>
 </div>
-<h2 class="separator">Popular</h2>
+<h2 class="section-heading">Popular</h2>
 <div class="latest-posts posts clearfix">
     <?php
     $latest_posts = get_posts(array(
