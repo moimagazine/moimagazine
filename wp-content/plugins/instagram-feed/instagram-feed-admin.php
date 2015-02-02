@@ -1,17 +1,10 @@
 <?php
 
 function sb_instagram_menu() {
-    add_menu_page(
-        'Instagram Feed',
-        'Instagram Feed',
-        'manage_options',
-        'sb-instagram-feed',
-        'sb_instagram_settings_page'
-    );
     add_submenu_page(
-        'sb-instagram-feed',
-        'Settings',
-        'Settings',
+        'options-general.php',
+        'Instagram Feed',
+        'Instagram Feed',
         'manage_options',
         'sb-instagram-feed',
         'sb_instagram_settings_page'
