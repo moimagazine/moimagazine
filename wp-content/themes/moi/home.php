@@ -1,51 +1,53 @@
 <?php get_header() ?>
-<div class="editors-picks">
-    <?php
-    $stickies = new WP_Query(array(
-                                 'posts_per_page'      => 5,
-                                 'post__in'            => get_option('sticky_posts'),
-                             ));
-    ?>
-    <div class="col col1">
+<article>
+    <div class="editors-picks">
         <?php
-        $stickies->the_post();
-        get_template_part('partials/loop', 'editorspick');
-        $stickies->the_post();
-        get_template_part('partials/loop', 'editorspick');
+        $stickies = new WP_Query(array(
+                                     'posts_per_page'      => 5,
+                                     'post__in'            => get_option('sticky_posts'),
+                                 ));
         ?>
-    </div>
-    <div class="col col2 main-story">
-        <?php
-        $stickies->the_post();
-        get_template_part('partials/loop', 'editorspick-large');
-        ?>
-        <div class="nav-block">
-            <a href="javascript:void(0)" class="loadmore">More</a>
+        <div class="col col1">
+            <?php
+            $stickies->the_post();
+            get_template_part('partials/loop', 'editorspick');
+            $stickies->the_post();
+            get_template_part('partials/loop', 'editorspick');
+            ?>
         </div>
+        <div class="col col2 main-story">
+            <?php
+            $stickies->the_post();
+            get_template_part('partials/loop', 'editorspick-large');
+            ?>
+            <div class="nav-block">
+                <a href="javascript:void(0)" class="loadmore">More</a>
+            </div>
+        </div>
+        <div class="col col3">
+            <?php
+            $stickies->the_post();
+            get_template_part('partials/loop', 'editorspick');
+            $stickies->the_post();
+            get_template_part('partials/loop', 'editorspick');
+            ?>
+        </div>
+        <?php wp_reset_postdata() ?>
     </div>
-    <div class="col col3">
+    <h2 class="section-heading">Popular</h2>
+    <div class="latest-posts posts clearfix">
         <?php
-        $stickies->the_post();
-        get_template_part('partials/loop', 'editorspick');
-        $stickies->the_post();
-        get_template_part('partials/loop', 'editorspick');
+        $latest_posts = get_posts(array(
+            'numberposts' => 6,
+        ));
+        foreach($latest_posts as $post) {
+            setup_postdata($post);
+            get_template_part('partials/loop', 'post');
+        }
         ?>
     </div>
-    <?php wp_reset_postdata() ?>
-</div>
-<h2 class="section-heading">Popular</h2>
-<div class="latest-posts posts clearfix">
-    <?php
-    $latest_posts = get_posts(array(
-        'numberposts' => 6,
-    ));
-    foreach($latest_posts as $post) {
-        setup_postdata($post);
-        get_template_part('partials/loop', 'post');
-    }
-    ?>
-</div>
-<div class="nav-block">
-    <a href="javascript:void(0)" class="loadmore">More</a>
-</div>
+    <div class="nav-block">
+        <a href="javascript:void(0)" class="loadmore">More</a>
+    </div>
+</article>
 <?php get_footer() ?>

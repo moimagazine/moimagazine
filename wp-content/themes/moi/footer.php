@@ -1,7 +1,6 @@
         <div class="pull-right">
             <img src="http://placehold.it/728x90&text=Leaderboard+(728x90)" width="728" height="90" />
         </div>
-        </article>
         <h2 class="instagram section-heading">Instagram Feed</h2>
         <div class="instagram-feed">
             <?php echo do_shortcode('[instagram-feed]'); ?>

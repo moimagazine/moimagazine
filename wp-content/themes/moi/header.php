@@ -73,4 +73,3 @@
 </div>
 <div id="content-outer">
     <div id="content-inner" class="page-width">
-        <article>
