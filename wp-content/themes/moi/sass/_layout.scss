@@ -44,7 +44,7 @@ a:hover {
 
     li {
         display: inline-block;
-        margin-top: 28px;
+        margin-top: 38px;
     }
 
     .main-navigation {
@@ -57,7 +57,7 @@ a:hover {
             color: #fff;
             display: block;
             margin-left: 5px;
-            padding: 10px 12px 20px 12px;
+            padding: 10px 12px 10px 12px;
             @include transition(background-color 200ms);
 
             &:hover {
@@ -70,7 +70,7 @@ a:hover {
     .search-container {
         float: right;
         font-size: 0;
-        margin-top: 38px;
+        margin-top: 48px;
     }
 
     .search-field {

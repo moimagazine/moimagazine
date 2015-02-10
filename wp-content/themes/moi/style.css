@@ -65,7 +65,7 @@ a:hover {
     padding: 0; }
   #header-outer li {
     display: inline-block;
-    margin-top: 28px; }
+    margin-top: 38px; }
   #header-outer .main-navigation {
     font-family: "Oswald", serif;
     font-size: 21px;
@@ -75,7 +75,7 @@ a:hover {
       color: #fff;
       display: block;
       margin-left: 5px;
-      padding: 10px 12px 20px 12px;
+      padding: 10px 12px 10px 12px;
       -moz-transition: background-color 200ms;
       -o-transition: background-color 200ms;
       -webkit-transition: background-color 200ms;
@@ -86,7 +86,7 @@ a:hover {
   #header-outer .search-container {
     float: right;
     font-size: 0;
-    margin-top: 38px; }
+    margin-top: 48px; }
   #header-outer .search-field {
     -moz-appearance: none;
     -webkit-appearance: none;
