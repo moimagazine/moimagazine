@@ -927,14 +927,24 @@ html:hover [class^="ss-"] {
 }
 
 article.post {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   max-width: 800px;
 }
 article.post .post-header .post-image {
+  font-size: 0;
   line-height: 0;
-  margin-left: -20px;
+  margin: 0 -20px;
+  position: relative;
+}
+article.post .post-header .post-image-credit {
+  background: #fff;
+  bottom: 10px;
+  font: normal 12px/20px "Old Standard", serif;
+  height: 18px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  padding: 0 4px;
+  position: absolute;
+  right: 10px;
 }
 article.post .post-header .avatar-block {
   border: 2px solid #fff;
@@ -968,10 +978,14 @@ article.post .post-content {
 }
 article.post .post-content p:first-child:first-letter {
   float: left;
-  font: 56px "Old Standard", serif;
+  font: 56px/70px "Old Standard", serif;
   margin: -5px 13px -20px 0;
 }
-
+@-moz-document url-prefix() {
+  article.post .post-content p:first-child:first-letter {
+    margin: 8px 13px -5px 0;
+  }
+}
 .top-stories .story-container {
   -moz-background-size: "cover";
   -o-background-size: "cover";
