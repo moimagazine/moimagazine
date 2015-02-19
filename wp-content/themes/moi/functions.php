@@ -30,6 +30,7 @@ function moi_setup() {
 
     add_image_size('vertical', 300, 375, true);
     add_image_size('vertical-large', 600, 750, true);
+    add_image_size('horizontal-large', 800, 400, true);
 }
 
 add_action('wp_enqueue_scripts', 'moi_scripts');
@@ -41,7 +42,8 @@ add_filter('image_size_names_choose', 'moi_image_sizes');
 function moi_image_sizes($presets) {
     $custom = array(
         "vertical" => __("Vertical"),
-        "vertical-large" => __("Vertical (Large)")
+        "vertical-large" => __("Vertical (Large)"),
+        "horizontal-large" => __("Horizontal (Large)")
     );
     return array_merge($presets, $custom);
 }
