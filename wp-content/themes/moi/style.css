@@ -68,8 +68,18 @@ a:hover {
   float: left;
   font-size: 0;
 }
-#header-outer nav {
-  margin-left: 200px;
+#header-outer #logo img {
+  height: 44px;
+}
+@media only screen and (min-width: 1280px) {
+  #header-outer #logo img {
+    height: 90px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  #header-outer nav {
+    margin-left: 200px;
+  }
 }
 #header-outer ul {
   list-style: none;
@@ -78,13 +88,28 @@ a:hover {
 }
 #header-outer li {
   display: inline-block;
-  margin-top: 38px;
+}
+@media only screen and (min-width: 1280px) {
+  #header-outer li {
+    margin-top: 38px;
+  }
 }
 #header-outer .main-navigation {
+  display: none;
   font-family: "Oswald", serif;
-  font-size: 21px;
+  font-size: 16px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+@media only screen and (min-width: 1024px) {
+  #header-outer .main-navigation {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  #header-outer .main-navigation {
+    font-size: 21px;
+  }
 }
 #header-outer .main-navigation a {
   color: #fff;
@@ -103,7 +128,12 @@ a:hover {
 #header-outer .search-container {
   float: right;
   font-size: 0;
-  margin-top: 48px;
+  margin-top: 8px;
+}
+@media only screen and (min-width: 1280px) {
+  #header-outer .search-container {
+    margin-top: 48px;
+  }
 }
 #header-outer .search-field {
   -moz-appearance: none;
@@ -128,14 +158,34 @@ a:hover {
 #header-outer .search-submit {
   -moz-appearance: none;
   -webkit-appearance: none;
-  background: url("images/search.svg") no-repeat center center;
+  background: url("images/sprite.svg") no-repeat -24px 1px;
   border: 0;
   cursor: pointer;
-  height: 24px;
-  margin-left: -32px;
+  height: 22px;
+  margin: 0 0 3px -32px;
   text-indent: -999px;
   vertical-align: bottom;
   width: 24px;
+}
+#header-outer #menu-toggle {
+  background: url("images/sprite.svg") no-repeat 0 0;
+  float: right;
+  height: 30px;
+  margin-top: 6px;
+  position: relative;
+  width: 36px;
+}
+#header-outer #menu-toggle:after {
+  content: "";
+  left: -10px;
+  padding: 22px 28px;
+  position: absolute;
+  top: -6px;
+}
+@media only screen and (min-width: 1024px) {
+  #header-outer #menu-toggle {
+    display: none;
+  }
 }
 #header-outer .music-category.selected a, #header-outer .music-category a:hover {
   background-color: #e4bb18;

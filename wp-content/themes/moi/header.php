@@ -32,7 +32,7 @@
 <div id="header-outer" class="clearfix">
     <div id="header-inner" class="page-width">
         <a id="logo" href="/">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/moi-logo.svg" height="90" alt="Moi Magazine" />
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/moi-logo.svg" alt="Moi Magazine" />
         </a>
         <nav>
             <ul class="main-navigation">
@@ -48,6 +48,7 @@
                 </li>
             </ul>
         </nav>
+        <div id="menu-toggle"></div>
     </div>
 </div>
 <div id="sub-header" class="page-width">
