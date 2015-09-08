@@ -1,4 +1,4 @@
-        <div class="pull-right">
+        <div class="pull-right ad leaderboard">
             <img src="http://placehold.it/728x90&text=Leaderboard+(728x90)" width="728" height="90" />
         </div>
         <h2 class="instagram section-heading">Instagram Feed</h2>

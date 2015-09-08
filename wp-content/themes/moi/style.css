@@ -821,17 +821,40 @@ html:hover [class^="ss-"] {
 
 .editors-picks {
   margin: 0 -20px;
-}
-.editors-picks .col {
-  width: 25%;
-  float: left;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .editors-picks .col .post-title {
   letter-spacing: 0.04em;
 }
+.editors-picks .col.main-story {
+  -webkit-order: -1;
+  order: -1;
+}
+.editors-picks .col.main-story .nav-block {
+  display: none;
+}
+@media only screen and (min-width: 640px) {
+  .editors-picks .col {
+    width: 25%;
+  }
+  .editors-picks .col.main-story {
+    -webkit-order: inherit;
+    order: inherit;
+  }
+  .editors-picks .col.main-story .nav-block {
+    display: block;
+  }
+}
 .editors-picks .col2 {
   color: #fff;
-  width: 50%;
+}
+@media only screen and (min-width: 640px) {
+  .editors-picks .col2 {
+    width: 50%;
+  }
 }
 .editors-picks .col2 .post-text {
   background: #000;
@@ -849,6 +872,11 @@ html:hover [class^="ss-"] {
 }
 .editors-picks .col2 .loadmore {
   color: #000;
+}
+@media only screen and (min-width: 640px) {
+  .editors-picks .col3 .nav-block {
+    display: none;
+  }
 }
 .editors-picks .post-container {
   padding: 20px;

@@ -1,18 +1,40 @@
 .editors-picks {
     margin: 0 -20px;
+    @include display-flex();
+    @include flex-wrap(wrap);
 
     .col {
-        width: 25%;
-        float: left;
-
         .post-title {
             letter-spacing: 0.04em;
+        }
+
+        &.main-story {
+            @include order(-1);
+
+            .nav-block {
+                display: none;
+            }
+        }
+
+        @include breakpoint(tablet) {
+            width: 25%;
+
+            &.main-story {
+                @include order(inherit);
+
+                .nav-block {
+                    display: block;
+                }
+            }
         }
     }
 
     .col2 {
         color: #fff;
-        width: 50%;
+
+        @include breakpoint(tablet) {
+            width: 50%;
+        }
 
         .post-text {
             background: #000;
@@ -33,6 +55,14 @@
 
         .loadmore {
             color: #000;
+        }
+    }
+
+    .col3 {
+        @include breakpoint(tablet) {
+            .nav-block {
+                display: none;
+            }
         }
     }
 

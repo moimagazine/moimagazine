@@ -31,6 +31,9 @@
             $stickies->the_post();
             get_template_part('partials/loop', 'editorspick');
             ?>
+            <div class="nav-block">
+                <a href="javascript:void(0)" class="loadmore">More</a>
+            </div>
         </div>
         <?php wp_reset_postdata() ?>
     </div>
