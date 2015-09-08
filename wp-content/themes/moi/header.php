@@ -48,7 +48,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="menu-toggle"></div>
+        <div id="menu-toggle" onclick="jQuery('.main-navigation').toggleClass('open')"></div>
     </div>
 </div>
 <div id="sub-header" class="page-width">
@@ -68,7 +68,7 @@
             </form>
         </div>
     </div>
-    <div class="left">
+    <div class="ad leaderboard">
         <img src="http://placehold.it/728x90&text=Leaderboard+(728x90)" width="728" height="90" />
     </div>
 </div>

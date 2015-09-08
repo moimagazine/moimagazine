@@ -8,8 +8,12 @@
     }
 }
 
-*, *:after, *:before {
+html {
     @include box-sizing(border-box);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 .pull-left {

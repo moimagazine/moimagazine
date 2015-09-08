@@ -1,11 +1,15 @@
-body, html {
+body {
     background: #fff;
     color: #333;
     font-family: $body-font;
     font-size: 16px;
     margin: 0;
-    padding: 0;
+    padding: 44px 0 0 0;
     -webkit-font-smoothing: antialiased;
+
+    @include breakpoint(laptop) {
+        padding-top: 0;
+    }
 }
 
 a, a:visited {
@@ -26,6 +30,15 @@ a:hover {
 
 #header-outer {
     background: #141414;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+
+    @include breakpoint(laptop) {
+        position: static;
+    }
 
     #logo {
         float: left;
@@ -66,6 +79,21 @@ a:hover {
         letter-spacing: 0.04em;
         text-transform: uppercase;
 
+        &.open {
+            background-color: rgba(0,0,0,0.8);
+            bottom: 0;
+            display: block;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 44px;
+            z-index: 1;
+
+            li {
+                display: block;
+            }
+        }
+
         @include breakpoint(laptop) {
             display: block;
         }
@@ -89,9 +117,12 @@ a:hover {
     }
 
     .search-container {
-        float: right;
         font-size: 0;
         margin-top: 8px;
+
+        @include breakpoint(laptop) {
+            float: right;
+        }
 
         @include breakpoint(desktop) {
             margin-top: 48px;
@@ -105,9 +136,15 @@ a:hover {
         font-size: 14px;
         height: 28px;
         outline: none;
+        margin-left: 15px;
         padding: 5px 32px 5px 10px;
         @include transition(width 500ms);
-        width: 130px;
+        width: 180px;
+
+        @include breakpoint(laptop) {
+            margin-left: 0;
+            width: 130px;
+        }
 
         &:focus {
             width: 180px;
@@ -240,6 +277,15 @@ a:hover {
     }
 }
 
+
+.ad.leaderboard {
+    display: none;
+
+    @include breakpoint(laptop) {
+            display: block;
+    }
+}
+
 article {
     clear: both;
     padding: 0 20px;
@@ -266,10 +312,18 @@ footer {
 
 #footer-inner {
     border-top: 1px solid #000;
-    padding: 50px 0 50px 0;
+    padding: 10px 0;
+
+    @include breakpoint(tablet) {
+        padding: 50px 0;
+    }
 
     form {
-        float: right;
+        margin: 20px 0;
+
+        @include breakpoint(tablet) {
+            float: right;
+        }
     }
 
     .email, .submit {
@@ -308,10 +362,13 @@ footer {
         @include flex-direction(column);
         @include flex-wrap(wrap);
         list-style: none;
-        height: 50px;
         margin: 0;
         padding: 0;
         max-width: 400px;
+
+        @include breakpoint(tablet) {
+            height: 50px;
+        }
 
         li {
             display: inline-block;
