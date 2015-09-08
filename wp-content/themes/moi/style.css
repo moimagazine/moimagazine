@@ -108,6 +108,11 @@ a:hover {
 #header-outer li {
   display: inline-block;
 }
+@media only screen and (min-width: 1025px) {
+  #header-outer li {
+    margin-left: 5px;
+  }
+}
 @media only screen and (min-width: 1280px) {
   #header-outer li {
     margin-top: 38px;
@@ -146,7 +151,6 @@ a:hover {
 #header-outer .main-navigation a {
   color: #fff;
   display: block;
-  margin-left: 5px;
   padding: 10px 12px 10px 12px;
   -moz-transition: background-color 200ms;
   -o-transition: background-color 200ms;
@@ -181,7 +185,7 @@ a:hover {
   font-size: 14px;
   height: 28px;
   outline: none;
-  margin-left: 15px;
+  margin-left: 10px;
   padding: 5px 32px 5px 10px;
   -moz-transition: width 500ms;
   -o-transition: width 500ms;
@@ -212,6 +216,7 @@ a:hover {
 }
 #header-outer #menu-toggle {
   background: url("images/sprite.svg") no-repeat 0 0;
+  cursor: pointer;
   float: right;
   height: 30px;
   margin-top: 6px;

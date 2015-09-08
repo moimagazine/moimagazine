@@ -67,6 +67,10 @@ a:hover {
     li {
         display: inline-block;
 
+        @include breakpoint(laptop) {
+            margin-left: 5px;
+        }
+
         @include breakpoint(desktop) {
             margin-top: 38px;
         }
@@ -105,7 +109,6 @@ a:hover {
         a {
             color: #fff;
             display: block;
-            margin-left: 5px;
             padding: 10px 12px 10px 12px;
             @include transition(background-color 200ms);
 
@@ -136,7 +139,7 @@ a:hover {
         font-size: 14px;
         height: 28px;
         outline: none;
-        margin-left: 15px;
+        margin-left: 10px;
         padding: 5px 32px 5px 10px;
         @include transition(width 500ms);
         width: 180px;
@@ -165,6 +168,7 @@ a:hover {
 
     #menu-toggle {
         background: url($sprite) no-repeat 0 0;
+        cursor: pointer;
         float: right;
         height: 30px;
         margin-top: 6px;
