@@ -9,8 +9,6 @@ class BetterImageCreditsAdmin {
 		// Manage additional media fields
 		add_filter('manage_media_columns', array(&$this, 'manage_media_columns'));
 		add_action('manage_media_custom_column', array(&$this, 'manage_media_custom_column'), 10, 2);
-		add_filter('attachment_fields_to_edit', array($this, 'add_fields' ), 10, 2);
-		add_filter('attachment_fields_to_save', array($this, 'save_fields' ), 10 , 2);
 	}
 
 	function add_settings() {
@@ -30,7 +28,7 @@ class BetterImageCreditsAdmin {
 	}
 
 	function add_settings_link($links) {
-		$url = site_url('/wp-admin/options-general.php?page=image-credits');
+		$url = admin_url('options-general.php?page=image-credits');
 		$links[] = '<a href="' . $url . '">' . __('Settings') . '</a>';
 		return $links;
 	}
@@ -45,13 +43,19 @@ class BetterImageCreditsAdmin {
 		<p><label><input type="checkbox" name="better-image-credits_display[]" value="<?php echo IMAGE_CREDIT_OVERLAY;?>"
 			<?php checked($this->plugin->display_option(IMAGE_CREDIT_OVERLAY)); ?>><?php
 			_e('Overlay on images (results may vary depending on your theme)', 'better-image-credits'); ?></label></p>
+		<p><label><input type="checkbox" name="better-image-credits_display[]" value="<?php echo IMAGE_CREDIT_INCLUDE_HEADER;?>"
+			<?php checked($this->plugin->display_option(IMAGE_CREDIT_INCLUDE_HEADER)); ?>><?php
+			_e('Include credits for header image (support for header image depends on you theme).', 'better-image-credits'); ?></label></p>
+		<p><label><input type="checkbox" name="better-image-credits_display[]" value="<?php echo IMAGE_CREDIT_INCLUDE_BACKGROUND;?>"
+			<?php checked($this->plugin->display_option(IMAGE_CREDIT_INCLUDE_BACKGROUND)); ?>><?php
+			_e('Include credits for background image (support for background image depends on you theme).', 'better-image-credits'); ?></label></p>
 		<p><em><?php _e('Choose how you want to display the image credits', 'better-image-credits'); ?></em></p>
-	<?php }
+		<?php }
 
 	function add_settings_field_template() { ?>
 		<p><input type="text" name="better-image-credits_template" id="better-image-credits_template" class="large-text code"
 			value="<?php echo htmlspecialchars(IMAGE_CREDITS_TEMPLATE); ?>" /></p>
-		<p><em><?php _e('HTML to output each individual credit line. Use [title], [source], [link] or [license] as placeholders.', 'better-image-credits'); ?></em></p><?php
+		<p><em><?php _e('HTML to output each individual credit line. Use [title], [source], [link], [license] or [license_link] as placeholders.', 'better-image-credits'); ?></em></p><?php
 	}
 
 	function add_settings_field_sep() { ?>
@@ -75,7 +79,7 @@ class BetterImageCreditsAdmin {
 	function options_page() { ?>
 <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2><?php _e('Image Credits Options', 'better-image-credits'); ?></h2>
+	<h1><?php _e('Image Credits Options', 'better-image-credits'); ?></h1>
 	<div id="main-container" class="postbox-container metabox-holder" style="width:75%;"><div style="margin:0 8px;">
 		<div class="postbox">
 			<h3 style="cursor:default;"><span><?php _e('Options', 'better-image-credits'); ?></span></h3>
@@ -104,7 +108,7 @@ class BetterImageCreditsAdmin {
 					</form>
 				</div>
 				<p><?php _e('We also need volunteers to translate that plugin into more languages.', 'better-image-credits'); ?>
-					<?php _e('If you wish to help then contact <a href="https://twitter.com/cvedovini">@cvedovini</a> on Twitter or use that <a href="http://vedovini.net/contact/">contact form</a>.', 'better-image-credits'); ?></p>
+					<?php _e('If you wish to help then contact <a href="https://twitter.com/cvedovini">@cvedovini</a> on Twitter or use that <a href="http://vdvn.me/contact/">contact form</a>.', 'better-image-credits'); ?></p>
 			</div> <!-- .inside -->
 		</div> <!-- .postbox -->
 		<div>
@@ -118,6 +122,7 @@ class BetterImageCreditsAdmin {
 
 	function manage_media_columns($defaults) {
 		$defaults['credits'] = __('Credits', 'better-image-credits');
+		$defaults['license'] = __('License', 'better-image-credits');
 		return $defaults;
 	}
 
@@ -134,72 +139,19 @@ class BetterImageCreditsAdmin {
 				}
 			}
 		}
-	}
 
-	function add_fields($form_fields, $post) {
-		$form_fields['credits_source'] = array(
-				'label' => __( 'Credits', 'better-image-credits' ),
-				'input' => 'text',
-				'value' => get_post_meta($post->ID, '_wp_attachment_source_name', true),
-				'helps' => __( 'Source name of the image.', 'better-image-credits' )
-		);
+		if ($column == 'license') {
+			$license = esc_attr(get_post_meta($post_id, '_wp_attachment_license', true));
+			$license_link = esc_url(get_post_meta($post_id, '_wp_attachment_license_url', true));
 
-		$form_fields['credits_link'] = array(
-				'label' => __( 'Link', 'better-image-credits' ),
-				'input' => 'text',
-				'value' => get_post_meta($post->ID, '_wp_attachment_source_url', true),
-				'helps' => __( 'URL where the original image was found.', 'better-image-credits' )
-		);
-
-		$form_fields['license'] = array(
-				'label' => __( 'License', 'better-image-credits' ),
-				'input' => 'text',
-				'value' => get_post_meta($post->ID, '_wp_attachment_license', true),
-				'helps' => __( 'License for this image.', 'better-image-credits' )
-		);
-
-		return $form_fields;
-	}
-
-	function save_fields($post, $attachment) {
-		if (isset($attachment['credits_source'])) {
-			$credits_source = get_post_meta($post['ID'], '_wp_attachment_source_name', true);
-
-			if ($credits_source != esc_attr($attachment['credits_source'])) {
-				if (empty($attachment['credits_source'])) {
-					delete_post_meta($post['ID'], '_wp_attachment_source_name');
+			if (!empty($license)) {
+				if (empty($license_link)) {
+					echo $license;
 				} else {
-					update_post_meta($post['ID'], '_wp_attachment_source_name', esc_attr($attachment['credits_source']));
+					echo '<a href="' . $license_link . '">' . $license . '</a>';
 				}
 			}
 		}
-
-		if (isset($attachment['credits_link'])) {
-			$credits_link = get_post_meta($post['ID'], '_wp_attachment_source_url', true);
-
-			if ($credits_link != esc_url($attachment['credits_link'])) {
-				if (empty($attachment['credits_link'])) {
-					delete_post_meta($post['ID'], '_wp_attachment_source_url');
-				} else {
-					update_post_meta($post['ID'], '_wp_attachment_source_url', esc_url($attachment['credits_link']));
-				}
-			}
-		}
-
-		if (isset($attachment['license'])) {
-			$license = get_post_meta($post['ID'], '_wp_attachment_license', true);
-
-			if ($license != esc_attr($attachment['license'])) {
-				if (empty($attachment['license'])) {
-					delete_post_meta($post['ID'], '_wp_attachment_license');
-				} else {
-					update_post_meta($post['ID'], '_wp_attachment_license', esc_attr($attachment['license']));
-				}
-			}
-		}
-
-		return $post;
-
 	}
 
 }

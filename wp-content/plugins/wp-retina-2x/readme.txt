@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: retina, images, image, admin, attachment, media, files, iphone, ipad, plugin, picture, pictures
 License: GPLv2 or later
 Requires at least: 3.5
-Tested up to: 4.1.1
-Stable tag: 3.0.4
+Tested up to: 4.3.1
+Stable tag: 3.5.4
 
 Make your website look beautiful and crisp on Retina / High DPI displays.
 
@@ -13,7 +13,7 @@ Make your website look beautiful and crisp on Retina / High DPI displays.
 
 This plugin creates the image files required by the Retina (High DPI) devices and displays them to your visitors accordingly. Your website will look beautiful and crisp on every device! The retina images will be generated for you automatically - though you can also do it manually - and served to the retina devices.
 
-It supports different methods to serve the images to your visitors, for instance: PictureFill (future HTML standard + its JS polyfill), Retina.js (JS only), IMG Rewrite (on-the-fly HTML rewrite) and Retina-Images (server handler). Pick the one that works best with your hosting and WordPress environment. Multi-site are also supported.
+It supports different methods to serve the images to your visitors, for instance: PictureFill (future HTML standard + its JS polyfill), Retina.js (JS only), IMG Rewrite (on-the-fly HTML rewrite) and Retina-Images (server handler). A lazy-loading option is available as well. Pick the one that works best with your hosting and WordPress environment. Multi-site are also supported.
 
 The plugin is very fast and optimized. It doesn't create anything in the database. In most cases, it doesn't even require any configuration. More information and tutorial available one http://apps.meow.fr/wp-retina-2x/.
 
@@ -27,6 +27,102 @@ Languages: English, French.
 
 == Changelog ==
 
+= 3.5.4 =
+* Update: PictureFill 3.0.1 (full codebase rewrite).
+
+= 3.5.2 =
+* Update: Little modification for SmushIt (https://wordpress.org/support/topic/wp-retina-2x-support-in-wp-smush?replies=1#post-7460268).
+
+= 3.5.0 =
+* Update: Towards using the new WP translation system.
+
+= 3.4.8 =
+* Update: For WordPress 4.3.
+* Update: RetinaImages to 1.7.2.
+* Info: If you like the plugin, please tell me so here: https://wordpress.org/support/view/plugin-reviews/wp-retina-2x :) Thank you, and have a nice week-end everyone!
+
+= 3.4.6 =
+* Fix: Search string not null but empty induces error.
+* Change: User Agent used for Pro authentification.
+
+= 3.4.4 =
+* Fix: Issues with class containing trailing spaces. Fixed in in SimpleHTMLDOM.
+* Fix: Used to show weird numbers when using 9999 as width or height.
+* Add: Filter and default filter to avoid certain IMG SRC to be checked/parsed by the plugin while rendering.
+
+= 3.4.2 =
+* Fix: Full-Size Retina wasn't removed when the original file was deleted from WP.
+
+= 3.4.0 =
+* Fix: Images set up with a 0x0 size must be skipped.
+
+= 3.3.8 =
+* Fix: There was an issue if the class starts with a space (broken HTML), plugin automatically fix it on the fly.
+* Fix: Full-Size image had the wrong path in the Details screen.
+* Fix: Option Auto Generate was wrongly show unchecked even though it is active by default.
+* Update: Moved the filters to allow developers to use files hosted on another server.
+* Update: Translation strings. If you want to translate the plugin in your language, please contact me :)
+
+= 3.3.6 =
+* Fix: There was an issue with local path for a few installs.
+* Add: Introduced $wr2x_extra_debug for extra developer debug (might be handy).
+
+= 3.3.5 =
+Fix: Very minor issue (one of the debug line had a bug).
+
+= 3.3.4 =
+* Fix: Issues with retina images outside the uploads directory.
+* Info: Please write a review for the plugin if you are happy with it. I am trying my best to make this plugin to work with every kind of WP install and system :)
+
+= 3.3.2 =
+* Fix: Use WP uploads folder for temporary files to avoid issues depending on hosting services.
+
+= 3.3.1 =
+* Update: LazySize from 1.0 to 1.1.
+* Update: PictureFill from 2.3.0 to 2.3.1.
+
+= 3.3.0 =
+* Fix: Used a PHP shortcut that only works in PHP 5.4. Shortcut removed.
+* Fix: Support for BedRock and a few more customized installs.
+* Info: If you encounter any issue, please roll-back to 3.2.8 and come to the support forum (https://wordpress.org/support/plugin/wp-retina-2x). If you are happy with it, please write a little review (https://wordpress.org/support/view/plugin-reviews/wp-retina-2x) :) Nice week-end everyone!
+
+= 3.2.9 =
+* Fix: Support for BedRock and a few more customized installs.
+* Update: Allows a little error margin for the resolution of images being uploaded for full-size retina.
+
+= 3.2.8 =
+* Fix: Support for custom uploads directory.
+* Info: Added error_log for BedRock related debugging (commented, check line 137 in main file). BedRock users should try to modify the wr2x_get_wordpress_upload_root function (in wp-retina-2x.php) to make it work for them. Let's talk about it on https://wordpress.org/support/topic/path-incorrect-as-custom-uploads-directory-location-with-bedrock.
+
+= 3.2.7 =
+* Add: API filters to give the opportunity to other plugins to plug into... this plugin ;)
+
+= 3.2.6 =
+* Add: Check the maximum upload value in PHP settings before actually uploading (to avoid silenced crashes).
+* Update: PictureFill from 2.2.0 to 2.3.0 (https://github.com/scottjehl/picturefill/releases/tag/2.3.0).
+
+= 3.2.4 =
+* Add: Custom CDN Domain support (check the "Custom CDN Domain" option).
+* Fix: Removed a console.log that was forgotten ;)
+* Change: different way of getting the temporary folder to write files (might help in a few cases).
+
+= 3.2.2 =
+* Fix: Drag & drop images wasn't working on Firefox and Safari.
+* Info: Please rate the plugin if you love it and never hesitate to post features requests :) Thank you!
+
+= 3.2.0 =
+* Fix: There was an issue when re-sizing PNG files.
+* Change: Lazysizes from 1.0.0 to 1.0.1 (seo improvement).
+* Change: Use minified version of retinajs.
+
+= 3.1.0 =
+* Add: Lazy-loading option for PictureFill (Pro).
+* Fix: For the Pro users having the IXR_client error.
+
+= 3.0.6 =
+* Fix: Plugin now works even behind a proxy.
+* Fix: Little UI bug while uploading a new image.
+
 = 3.0.4 =
 * Add: In the dashboard, added tooltips showing the sizes of the little squares on hover.
 * Fix: The plugin was not compatible with Polylang, now it works.
@@ -39,7 +135,7 @@ Languages: English, French.
 * Change: Enhanced logs (in debug mode), much easier to read.
 * Change: Dashboard enhanced, more clear, possibility of having many image sizes on the screen.
 * Fix: Better handing of non-image media and image detection.
-* Fix: Rounding issues always been present, they are now fixed with an 2px error margin. 
+* Fix: Rounding issues always been present, they are now fixed with an 2px error margin.
 * Fix: Warnings and issues in case of broken metadata and images.
 * Add: (PRO) New pop-up screen with detailed information.
 * Add: (PRO) Added Retina for Full-Size with upload feature. Please note that Full-Size Retina also works with the normal version but you will have to manually resize and upload them.
@@ -243,11 +339,31 @@ Quick and easy installation:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Check the settings of WP Retina 2x in the WordPress administration screen.
 4. Check the Retina Dashboard.
-6. Read the tutorial about the plugin: <a href='http://apps.meow.fr/wp-retina-2x/tutorial//'>WP Retina 2x Tutorial</a>.
+6. Read the tutorial about the plugin: <a href='http://apps.meow.fr/wp-retina-2x/tutorial/'>WP Retina 2x Tutorial</a>.
 
 == Frequently Asked Questions ==
 
-The FAQ can be found at http://apps.meow.fr/wp-retina-2x/faq/.
+Users, you will find the FAQ here: http://apps.meow.fr/wp-retina-2x/faq/.
+
+Developers, WP Retina 2x has a little API. Here are a few filters and actions you might want to use.
+
+= Functions =
+* wr2x_get_retina_from_url( $url ): return the URL of the retina image (empty string if not found)
+* wr2x_get_retina( $syspath ): return the system path of the retina image (null if not found)
+
+= Actions =
+* wr2x_retina_file_added: called when a new retina file is created, 1st argument is $attachment_id (of the media) and second is the $retina_filepath
+* wr2x_retina_file_removed: called when a new retina file is removed, 1st argument is $attachment_id (of the media) and second is the $retina_filepath
+
+= Filters =
+* wr2x_img_url: you can check and potentially override the $wr2x_img_url (normal/original image from the src) that will be used in the srcset for 1x
+* wr2x_img_retina_url: you can check and potentially override the $wr2x_img_retina_url (retina image) that will be used in the srcset for 2x
+* wr2x_img_src: you can check and potentially override the $wr2x_img_src that will be used in the img's src (only used in Pro version)
+* wr2x_validate_src: the img src is passed; return it if it is valid, return null if it should be skipped
+
+== Upgrade Notice ==
+
+None.
 
 == Screenshots ==
 
