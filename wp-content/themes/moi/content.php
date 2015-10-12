@@ -3,9 +3,7 @@
         <?php the_title( '<h1 class="post-title">', '</h1>' ); ?>
         <div class="post-image">
             <?php the_post_thumbnail('horizontal-large') ?>
-            <div class="post-image-credit">
-                <?php the_image_credits('/', '') ?>
-            </div>
+            <?php the_image_credits() ?>
         </div>
         <div class="post-byline">
             <a class="avatar-block" href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>">
