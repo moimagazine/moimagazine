@@ -38,6 +38,14 @@ function moi_scripts() {
     wp_enqueue_style('moi-style', get_stylesheet_uri());
 }
 
+add_action( 'init', 'register_moi_menus' );
+function register_moi_menus() {
+    register_nav_menus( array(
+        'header-menu' => __( 'Header Menu' ),
+        'footer-menu '=> __( 'Footer Menu' )
+    ) );
+}
+
 add_filter('image_size_names_choose', 'moi_image_sizes');
 function moi_image_sizes($presets) {
     $custom = array(

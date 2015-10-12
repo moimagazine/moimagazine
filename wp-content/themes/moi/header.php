@@ -36,15 +36,14 @@
         </a>
         <nav>
             <ul class="main-navigation">
-                <li class="music-category"><a href="/">Music</a></li>
-                <li class="art-category"><a href="/">Art</a></li>
-                <li class="fashion-category"><a href="/">Fashion</a></li>
-                <li class="beauty-category"><a href="/">Beauty</a></li>
-                <li class="sex-category"><a href="/">Sex &amp; Relationships</a></li>
-                <li class="living-category"><a href="/">Living</a></li>
-                <li class="shop-category"><a href="/">Shop</a></li>
+                <?php wp_nav_menu( array(
+                    'menu' => 'header-menu',
+                    'container' => '',
+                    'fallback_cb' => false,
+                    'items_wrap' => '%3$s'
+                ) ); ?>
                 <li class="search-container">
-                    <?php get_search_form() ?>
+                    <?php get_search_form(); ?>
                 </li>
             </ul>
         </nav>

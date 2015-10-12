@@ -15,14 +15,10 @@
                 <input type="email" class="email" placeholder="Your email address" /><!--
              --><input type="submit" class="submit" value="&gt;" />
             </form>
-            <ul>
-                <li><a href="/">About Moi</a></li>
-                <li><a href="/">The Team</a></li>
-                <li><a href="/">Careers</a></li>
-                <li><a href="/">Press</a></li>
-                <li><a href="/">Help &amp; FAQ</a></li>
-                <li><a href="/">Contact</a></li>
-            </ul>
+            <?php wp_nav_menu( array(
+                'menu' => 'footer-menu',
+                'fallback_cb' => false,
+            ) ); ?>
         </div>
     </div>
     <div id="footer-bottom">
